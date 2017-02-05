@@ -17,7 +17,8 @@ public class TripleS_Chess
      */
     public static void main(String[] args) 
     {
-        // TODO code application logic here
+        //Just threw something in here as a placeholder
+        System.out.println("CHESS ROCKS!");
     }
     
 }
