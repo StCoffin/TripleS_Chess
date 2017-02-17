@@ -5,6 +5,8 @@
  */
 package triples_chess;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Triple S Development =)
@@ -19,6 +21,11 @@ public class TripleS_Chess
     {
         //Just threw something in here as a placeholder
         System.out.println("CHESS ROCKS!");
+        
+        Board newBoard = new Board();
+        
+        newBoard.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        newBoard.setVisible(true);
     }
     
 }
