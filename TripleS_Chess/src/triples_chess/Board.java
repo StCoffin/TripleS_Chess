@@ -41,7 +41,29 @@ public class Board extends JFrame
     {
         public boardPanel()
         {
-            
+           setLayout(new BorderLayout());
+           
+           Font Large = new Font("TimesRoman", Font.BOLD, 30);
+           
+           gamePanel.setLayout(new GridLayout(8, 8, 5, 5));
+           
+           
+           place = 0;
+           for (int a = 0; a<8; a++)
+           {
+               
+               for(int b = 0; b < 8; b++)
+               {
+                   peiceButton[a][b] = new JButton("" + gamePeices.substring(place, place + 3));
+                   peiceButton[a][b].setBackground(Color.WHITE);
+                   peiceButton[a][b].setFont      (Large);
+                   gamePanel.add(peiceButton[a][b]);
+                   place = place + 4;
+                      
+               }
+           }
+           add(gamePanel);
+           
         }
         
             
@@ -52,8 +74,11 @@ public class Board extends JFrame
     
     JButton peiceButton[][] = new JButton[8][8];
     
-    String gamePeices = " ";
+    String gamePeices = "WR1,WP1,   ,   ,   ,   ,BP1,BR1,WK1,WP2,   ,   ,   ,   ,BP2,BK1,WB1,WP3,   ,   ,   ,   ,BP3,BB1,WQ1,WP4,   ,   ,   ,   ,BP4,BQ1,WA1,WP5,   ,   ,   ,   ,BP5,BK1,WB2,WP6,   ,   ,   ,   ,BP6,BB2,WK2,WP7,   ,   ,   ,   ,BP7,BK2,WR2,WP8,   ,   ,   ,   ,BP8,BR2,";
     
     private String canCapture;
+    
+    int place = 0;
+
     
 }
