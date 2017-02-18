@@ -6,29 +6,34 @@
 package triples_chess;
 
 import java.awt.*;
-import javax.swing.*;
+import java.swing.*;
 
 /**
  *
  * @author Stcof
  */
-public class Piece 
+public class Pawn extends Piece
 {
-    
-    
-    public String setColor(char a)
+    public Pawn()
     {
-        if( a == 'W')
-        {
-            color = "White";
-        }
-        else if( a == 'B')
-        {
-            color = "Black";
-        }
+        
+    }
+    
+    public Pawn(JButton[][], String s)
+    {
+        
+        
+    }
+    
+    public String canMove()
+    {
+        
+    }
+    
+    
+    public String getColor()
+    {
         return color;
     }
     
-    JButton holdButton;
-    public String color;
 }
