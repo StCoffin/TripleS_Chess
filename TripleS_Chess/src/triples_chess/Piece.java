@@ -4,31 +4,49 @@
  * and open the template in the editor.
  */
 package triples_chess;
-
-import java.awt.*;
-import javax.swing.*;
-
 /**
  *
  * @author Stcof
  */
 public class Piece 
 {
-    
-    
-    public String setColor(char a)
+
+    public Piece()
     {
-        if( a == 'W')
-        {
-            color = "White";
-        }
-        else if( a == 'B')
-        {
-            color = "Black";
-        }
-        return color;
+
     }
     
-    JButton holdButton;
-    public String color;
+    public Piece(pieceR type, pColor colr) 
+    {
+
+        this.type = type;
+        this.colr = colr;
+        
+
+    }
+
+    public pieceR type() 
+    {
+        return type;
+    }
+
+    public pColor colr() 
+    {
+        return colr;
+    }
+
+    public String getImgID() 
+    {
+        return pImg;
+    }
+
+    public String toString() 
+    {
+        return colr + "" + type;
+    }
+
+    public String pImg;
+    pieceR type;
+    pColor colr;
 }
+

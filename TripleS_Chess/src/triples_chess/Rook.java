@@ -5,26 +5,26 @@
  */
 package triples_chess;
 
-
 /**
  *
  * @author Stcof
  */
-public class Pawn extends Piece
+public class Rook extends Piece
 {
-    public Pawn(pColor color)
+    
+    public Rook(pColor color)
     {
         colr = color;
-        type = pieceR.PAWN;
+        type = pieceR.ROOK;
         switch(colr)
         {
             case W :
-                pImg = "W" + "Pwn";
-                System.out.println("Initialized new pawn: White!");
+                pImg = "W" + "Rok";
+                System.out.println("Initialized new Rook: White!");
                 break;
             case B :
-                pImg = "B" + "Pwn";
-                System.out.println("Initialized new pawn: Black!");
+                pImg = "B" + "Rok";
+                System.out.println("Initialized new Rook: Black!");
                 break;
         }
 
