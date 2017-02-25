@@ -20,12 +20,12 @@ public class TripleS_Chess
     public static void main(String[] args) 
     {
         //Just threw something in here as a placeholder
-        System.out.println("CHESS ROCKS!");
+        System.out.println("Initializing new chess board!");
         
         Board newBoard = new Board();
         
-        newBoard.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        newBoard.setVisible(true);
+        //newBoard.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //newBoard.setVisible(true);
     }
     
 }

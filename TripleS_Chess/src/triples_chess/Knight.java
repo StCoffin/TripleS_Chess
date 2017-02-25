@@ -5,24 +5,23 @@
  */
 package triples_chess;
 
-
 /**
  *
  * @author Stcof
  */
-public class Pawn extends Piece
+public class Knight 
 {
-    public Pawn(pColor color)
+    public Knight(pColor color)
     {
         colr = color;
-        type = pieceR.PAWN;
+        type = pieceR.KNIGHT;
         switch(colr)
         {
             case W :
-                pImg = "W" + "Pwn";
+                pImg = "W" + "Knt";
                 break;
             case B :
-                pImg = "B" + "Pwn";
+                pImg = "B" + "Knt";
         }
 
     }
