@@ -9,7 +9,7 @@ package triples_chess;
  *
  * @author Stcof
  */
-public class Rook 
+public class Rook extends Piece
 {
     
     public Rook(pColor color)
@@ -20,9 +20,12 @@ public class Rook
         {
             case W :
                 pImg = "W" + "Rok";
+                System.out.println("Initialized new Rook: White!");
                 break;
             case B :
                 pImg = "B" + "Rok";
+                System.out.println("Initialized new Rook: Black!");
+                break;
         }
 
     }

@@ -9,7 +9,7 @@ package triples_chess;
  *
  * @author Stcof
  */
-public class Knight 
+public class Knight extends Piece
 {
     public Knight(pColor color)
     {

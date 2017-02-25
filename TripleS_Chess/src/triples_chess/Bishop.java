@@ -9,7 +9,7 @@ package triples_chess;
  *
  * @author Stcof
  */
-public class Bishop 
+public class Bishop extends Piece
 {
     public Bishop(pColor color)
     {

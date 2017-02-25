@@ -9,7 +9,7 @@ package triples_chess;
  *
  * @author Stcof
  */
-public class Queen 
+public class Queen extends Piece
 {
     public Queen(pColor color)
     {
