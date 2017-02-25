@@ -14,21 +14,70 @@ import javax.swing.*;
  */
 public class Piece 
 {
-    
-    
-    public String setColor(char a)
+
+    public Piece(pieceR type, pColor colr) 
     {
-        if( a == 'W')
+
+        this.type = type;
+        this.colr = colr;
+        
+        if (colr == pColor.W) 
         {
-            color = "White";
-        }
-        else if( a == 'B')
+            pImg = "W";
+        } 
+        else if (colr == pColor.B) 
         {
-            color = "Black";
+            pImg = "B";
         }
-        return color;
+        if (type == pieceR.PAWN) 
+        {
+            pImg = pImg + "pwn";
+        } 
+        else if (type == pieceR.ROOK) 
+        {
+            pImg = pImg + "Rok";
+        } 
+        else if (type == pieceR.KNIGHT) 
+        {
+            pImg = pImg + "Knt";
+        } 
+        else if (type == pieceR.BISHOP) 
+        {
+            pImg = pImg + "Bis";
+        } 
+        else if (type == pieceR.QUEEN) 
+        {
+            pImg = pImg + "Que";
+        } 
+        else if (type == pieceR.KING) 
+        {
+            pImg = pImg + "Ace";
+        }
+
     }
-    
-    JButton holdButton;
-    public String color;
+
+    public pieceR type() 
+    {
+        return type;
+    }
+
+    public pColor colr() 
+    {
+        return colr;
+    }
+
+    public String getImgID() 
+    {
+        return pImg;
+    }
+
+    public String toString() 
+    {
+        return colr + "" + type;
+    }
+
+    public String pImg;
+    pieceR type;
+    pColor colr;
 }
+
