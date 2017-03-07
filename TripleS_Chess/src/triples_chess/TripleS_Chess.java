@@ -4,9 +4,6 @@
  * and open the template in the editor.
  */
 package triples_chess;
-
-import javax.swing.JFrame;
-
 /**
  *
  * @author Triple S Development =)
@@ -24,8 +21,5 @@ public class TripleS_Chess
         
         Board newBoard = new Board();
         
-        //newBoard.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //newBoard.setVisible(true);
     }
-    
 }
