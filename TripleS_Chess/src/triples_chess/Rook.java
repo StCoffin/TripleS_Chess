@@ -20,11 +20,9 @@ public class Rook extends Piece
         {
             case W :
                 pImg = "W" + "Rok";
-                System.out.println("Initialized new Rook: White!");
                 break;
             case B :
                 pImg = "B" + "Rok";
-                System.out.println("Initialized new Rook: Black!");
                 break;
         }
 

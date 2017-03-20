@@ -20,11 +20,9 @@ public class Pawn extends Piece
         {
             case W :
                 pImg = "W" + "Pwn";
-                System.out.println("Initialized new pawn: White!");
                 break;
             case B :
                 pImg = "B" + "Pwn";
-                System.out.println("Initialized new pawn: Black!");
                 break;
         }
 
