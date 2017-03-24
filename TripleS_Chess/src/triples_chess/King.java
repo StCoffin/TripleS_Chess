@@ -11,10 +11,10 @@ package triples_chess;
  */
 public class King extends Piece
 {
-    public King(pColor color)
+    public King(pC color)
     {
         colr = color;
-        type = pieceR.KING;
+        type = pT.KING;
         switch(colr)
         {
             case W :
@@ -26,6 +26,23 @@ public class King extends Piece
 
     }
     
+    
+    public int[][] vMove( Object[][] B)
+    {
+        for (int col = 0; col<8; col++)
+        {
+            for(int row = 0; row < 8; row++)
+            {
+        	moves[col][row] = 0;
+                
+            }
+                
+        }
+        
+        
+        
+        return moves;
+    }
     
     
     /**
@@ -40,14 +57,15 @@ public class King extends Piece
         return pImg;
     }
     
-    public pColor getColor()
+    public pC getColor()
     {
         return colr;
     }
     
     //Initialize varibales
-    pieceR type;
-    pColor colr;
+    pT type;
+    pC colr;
     private String pImg;
+    private int[][] moves = new int[8][8];
     
 }
