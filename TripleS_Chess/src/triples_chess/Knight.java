@@ -11,10 +11,10 @@ package triples_chess;
  */
 public class Knight extends Piece
 {
-    public Knight(pColor color)
+    public Knight(pC color)
     {
         colr = color;
-        type = pieceR.KNIGHT;
+        type = pT.KNIGHT;
         switch(colr)
         {
             case W :
@@ -40,14 +40,14 @@ public class Knight extends Piece
         return pImg;
     }
     
-    public pColor getColor()
+    public pC getColor()
     {
         return colr;
     }
     
     //Initialize varibales
-    pieceR type;
-    pColor colr;
+    pT type;
+    pC colr;
     private String pImg;
     
 }

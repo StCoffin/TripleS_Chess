@@ -12,22 +12,38 @@ package triples_chess;
 public class Rook extends Piece
 {
     
-    public Rook(pColor color)
+    public Rook(pC color)
     {
         colr = color;
-        type = pieceR.ROOK;
+        type = pT.ROOK;
         switch(colr)
         {
             case W :
                 pImg = "W" + "Rok";
-                System.out.println("Initialized new Rook: White!");
                 break;
             case B :
                 pImg = "B" + "Rok";
-                System.out.println("Initialized new Rook: Black!");
                 break;
         }
 
+    }
+    
+    public int[][] vMove(Object[][] B)
+    {
+        int[][] moves = new int[8][8];
+        for (int col = 0; col<8; col++)
+        {
+            for(int row = 0; row < 8; row++)
+            {
+        	moves[col][row] = 0;
+                
+            }
+                
+        }
+        
+        
+        
+        return moves;
     }
     
     
@@ -44,14 +60,14 @@ public class Rook extends Piece
         return pImg;
     }
     
-    public pColor getColor()
+    public pC getColor()
     {
         return colr;
     }
     
     //Initialize varibales
-    pieceR type;
-    pColor colr;
+    pT type;
+    pC colr;
     private String pImg;
     
 }

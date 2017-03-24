@@ -11,10 +11,10 @@ package triples_chess;
  */
 public class Bishop extends Piece
 {
-    public Bishop(pColor color)
+    public Bishop(pC color)
     {
         colr = color;
-        type = pieceR.BISHOP;
+        type = pT.BISHOP;
         switch(colr)
         {
             case W :
@@ -40,14 +40,14 @@ public class Bishop extends Piece
         return pImg;
     }
     
-    public pColor getColor()
+    public pC getColor()
     {
         return colr;
     }
     
     //Initialize varibales
-    pieceR type;
-    pColor colr;
+    pT type;
+    pC colr;
     private String pImg;
     
 }

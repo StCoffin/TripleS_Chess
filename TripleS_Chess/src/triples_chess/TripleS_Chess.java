@@ -5,7 +5,9 @@
  */
 package triples_chess;
 
-import javax.swing.JFrame;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 /**
  *
@@ -22,10 +24,11 @@ public class TripleS_Chess
         //Just threw something in here as a placeholder
         System.out.println("Initializing new chess board!");
         
+        
         Board newBoard = new Board();
         
-        //newBoard.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //newBoard.setVisible(true);
+        newBoard.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        newBoard.setVisible(true);
+        
     }
-    
 }

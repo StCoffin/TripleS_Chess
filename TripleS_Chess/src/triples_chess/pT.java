@@ -9,7 +9,7 @@ package triples_chess;
  *
  * @author Stcof
  */
-public enum pColor 
+public enum pT 
 {
-    W, B
+    PAWN, ROOK, KNIGHT, BISHOP, KING, QUEEN
 }
