@@ -19,7 +19,7 @@ public class Pawn extends Piece
     {
         colr = color;
         type = pT.PAWN;
-        hasMoved = false;
+        hasMoved = 0;
         switch(colr)
         {
             case W :
@@ -36,7 +36,7 @@ public class Pawn extends Piece
     {
         if (B[col][row].colr() == colr.W && col > 0) 
         {
-            if ((B[col][row]).hasMoved == false) {
+            if ((B[col][row]).hasMoved == 0) {
                 moves[col - 1][row] = 1;
                 moves[col - 2][row] = 1;
             } else {
@@ -114,6 +114,6 @@ public class Pawn extends Piece
     pC colr;
     private String pImg;
     private int[][] moves = new int[8][8];
-    private boolean hasMoved;
+    private int hasMoved;
     
 }
