@@ -15,12 +15,6 @@ import javax.swing.*;
  * Called By TripleS_Chess
  */
 
-
-import java.util.*;
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-
 public class Board extends JFrame
 {
 	public Board()
@@ -150,7 +144,7 @@ public class Board extends JFrame
             }
 
         }
-    }
+    } // End Clickthem Actionlistener
     
     public void movePiece(int xa, int ya, int xb, int yb)
     {
@@ -171,9 +165,9 @@ public class Board extends JFrame
     	}
     	
         
-    }
+    }// End movePiece()
     
-    
+    // method to paint potential valid moves that a user can select
     public void paintPotMoves(int[][] posit)
     {
     	int col = 0;
@@ -193,8 +187,9 @@ public class Board extends JFrame
     			break;
     		}
     	}
-    }
+    } // End paintPotMoves()
     
+    // Method to unpaint potential moves a user can make
     public void unpaintPotMoves(int[][] posit)
     {
     	int col = 0;
@@ -214,7 +209,7 @@ public class Board extends JFrame
     			break;
     		}
     	}
-    }
+    } // End unpaintPotMoves()
     
     // Initialize gameB Board and print out basic setup, ~ = null spaces
     public void initBoard() 
@@ -297,7 +292,7 @@ public class Board extends JFrame
             System.out.println();
         }
 
-    }
+    } // End initBoard()
     
     
     // Test method for Valid Move Print out.
