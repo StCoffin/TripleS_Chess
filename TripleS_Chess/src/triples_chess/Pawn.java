@@ -45,39 +45,9 @@ public class Pawn extends Piece
         }
 
         return moves;
-
-    
-        /**    
-        for (int x = 0; x<8; col++)
-        {
-            for(int row = 0; row < 8; row++)
-            {
-                if (x == col && y == row)
-                {
-                    moves[col][row] = 1;
-                }
-                else
-                {
-                    moves[col][row] = 0;
-                }
-            }
-                
-        }
-        * **/
-        
-        
-        
-        
+  
     }
     
-    
-    
-    /**
-    public  String canMove()
-    {
-        // Do something here...
-    }
-    **/
     
     public String getImgID() 
     {
