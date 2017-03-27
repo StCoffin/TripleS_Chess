@@ -93,7 +93,6 @@ public class Board extends JFrame
             yHold = Integer.parseInt(ButtonPressed.getClientProperty("Row").toString());
             System.out.println(ButtonPressed.getClientProperty("Col") + " , " + ButtonPressed.getClientProperty("Row"));
             
-            //System.out.println(((Piece) gameB[xHold][yHold]).getImgID());
 
             if (mCount == 0) 
             {
@@ -104,7 +103,6 @@ public class Board extends JFrame
                 	System.out.println(gameB[xHold][yHold].getImgID());
                 	validMoves = gameB[x1][y1].vMove(x1, y1, gameB);
                 	paintPotMoves(validMoves);
-                	print2Array(validMoves);
                 	mCount++;
                 }
             } 
@@ -112,24 +110,25 @@ public class Board extends JFrame
             {
                 x2 = xHold;
                 y2 = yHold;
-                pC A = (gameB[x1][y1]).colr();
-                pC B = (gameB[x2][y2]).colr();
-                if (A == B) 
+                if (gameB[x1][y1].colr == gameB[x2][y2].colr) 
                 {
                     x1 = x2;
                     y1 = y2;
-                    System.out.println("New Calculation");
+                    System.out.println("Same Color Piece Selection, Recalculating");
                     unpaintPotMoves(validMoves);
                     validMoves = gameB[x1][y1].vMove(x1, y1, gameB);
-                    print2Array(validMoves);
                     paintPotMoves(validMoves);
 
                 } 
                 else
                 {
-                     unpaintPotMoves(validMoves);
-                     movePiece(x1, y1, x2, y2);
-                     mCount = 0;
+                    unpaintPotMoves(validMoves);
+                    movePiece(x1, y1, x2, y2);
+                    wCheck = isCheck(KWX, KWY);
+                    bCheck = isCheck(KBX, KBY);
+                    System.out.println("in check b? " + bCheck);
+                    System.out.println("in check w? " + wCheck);
+                    mCount = 0;
 
                 }
             }
@@ -139,6 +138,10 @@ public class Board extends JFrame
                 y2 = yHold;
                 unpaintPotMoves(validMoves);
                 movePiece(x1, y1, x2, y2);
+                wCheck = isCheck(KWX, KWY);
+                bCheck = isCheck(KBX, KBY);
+                System.out.println("in check b? " + bCheck);
+                System.out.println("in check w? " + wCheck);      
                 mCount = 0;
 
             }
@@ -146,25 +149,49 @@ public class Board extends JFrame
         }
     } // End Clickthem Actionlistener
     
-    public void movePiece(int xa, int ya, int xb, int yb)
+    public void movePiece(int xa, int ya, int xb, int yb) 
     {
-    	int row = 0 ;
-    	
-    	for (int col = 0; col < validMoves.length; col++)
-    	{
-    		if (xb == validMoves[col][row] && yb == validMoves[col][row+1])
-    		{
-    			holdPiece = gameB[xb][yb];
-    			gameB[xb][yb] = gameB[xa][ya];
-    	        CB[xb][yb].setText( gameB[xb][yb].getImgID() );
-    	        gameB[xb][yb].isMoved();
-    	        gameB[xa][ya] = null;
-    	        CB[xa][ya].setText(xa+" "+ya);
-    	        break;
-    		}
-    	}
-    	
-        
+        int row = 0;
+        for (int col = 0; col < validMoves.length; col++) 
+        {
+            if (xb == validMoves[col][row] && yb == validMoves[col][row + 1]) 
+            {
+                // if valid move is a king
+                if ((gameB[xb][yb] == null || gameB[xb][yb] != null) && gameB[xa][ya].type == pT.KING) 
+                {
+                    if ((gameB[xb][yb] == null || gameB[xb][yb] != null) && gameB[xa][ya].colr == pC.W) 
+                    {
+                        KWX = xb;
+                        KWY = yb;
+                        System.out.println("new King White Position X: " + KWX + " Y: " + KWY);
+                    } 
+                    else if ((gameB[xb][yb] == null || gameB[xb][yb] != null) && gameB[xa][ya].colr == pC.B) 
+                    {
+                        KBX = xb;
+                        KBY = yb;
+                        System.out.println("new King White Position X: " + KBX + " Y: " + KBY);
+                    }
+                    holdPiece = gameB[xb][yb];
+                    gameB[xb][yb] = gameB[xa][ya];
+                    CB[xb][yb].setText(gameB[xb][yb].getImgID());
+                    gameB[xb][yb].isMoved();
+                    gameB[xa][ya] = null;
+                    CB[xa][ya].setText(xa + " " + ya);
+                    
+                } 
+                // if any piece besides a king
+                else 
+                {
+                    holdPiece = gameB[xb][yb];
+                    gameB[xb][yb] = gameB[xa][ya];
+                    CB[xb][yb].setText(gameB[xb][yb].getImgID());
+                    gameB[xb][yb].isMoved();
+                    gameB[xa][ya] = null;
+                    CB[xa][ya].setText(xa + " " + ya);
+                }
+            }
+        }
+
     }// End movePiece()
     
     // method to paint potential valid moves that a user can select
@@ -180,7 +207,7 @@ public class Board extends JFrame
     		{
     		col = posit[i][k];
     		row = posit[i][k+1];
-    		CB[col][row].setForeground(Color.RED);
+    		CB[col][row].setForeground(Color.green);
     		}
     		else
     		{
@@ -190,26 +217,30 @@ public class Board extends JFrame
     } // End paintPotMoves()
     
     // Method to unpaint potential moves a user can make
-    public void unpaintPotMoves(int[][] posit)
-    {
-    	int col = 0;
-    	int row = 0;
-    	int k	= 0;
-    	
-    	for (int i = 0; i < posit.length; i ++)
-    	{
-    		if (posit[i][k] != 8)
-    		{
-    		col = posit[i][k];
-    		row = posit[i][k+1];
-    		CB[col][row].setForeground(Color.blue);
-    		}
-    		else
-    		{
-    			break;
-    		}
-    	}
+    public void unpaintPotMoves(int[][] posit) {
+        int col = 0;
+        int row = 0;
+        int k = 0;
+
+        for (int i = 0; i < posit.length; i++) {
+            if (posit[i][k] != 8) 
+            {
+                col = posit[i][k];
+                row = posit[i][k + 1];
+                CB[col][row].setForeground(Color.blue);
+            } 
+            else 
+            {
+                break;
+            }
+        }
     } // End unpaintPotMoves()
+    
+    // Method to Paint the current status of Check: RED == In-check, standard BLUE == not-in-check
+    public void paintCheck(pC A, boolean z)
+    {
+
+    }
     
     // Initialize gameB Board and print out basic setup, ~ = null spaces
     public void initBoard() 
@@ -272,8 +303,14 @@ public class Board extends JFrame
         //Kings
         gameB[0][4] = (new Piece (pT.KING, pC.B));
         CB[0][4].setText( gameB[0][4].getImgID());
+        bCheck = false;
+        KBX = 0;
+        KBY = 4;
         gameB[7][4] = (new Piece (pT.KING, pC.W));
         CB[7][4].setText( gameB[7][4].getImgID());
+        wCheck = false;
+        KWX = 7;
+        KWY = 4;
 
         //print list of pieces
         for (int i = 0; i < 8; i++) 
@@ -301,9 +338,8 @@ public class Board extends JFrame
         for (int i = 0; i < mark.length ; i++)
 		{
 			for (int j = 0 ; j < 2 ; j++)
-			{
-				
-					System.out.print(mark[i][j] + " , ");
+			{	
+                            System.out.print(mark[i][j] + " , ");
 			}
 			System.out.println();
 		}
@@ -320,5 +356,201 @@ public class Board extends JFrame
     int mCount = 0;
     int x1, y1, x2, y2, xHold, yHold;
     int[][] validMoves ;
+    int KBX, KBY ;
+    int KWX, KWY ;
+    boolean wCheck;
+    boolean bCheck;
+    
+    
+    public boolean isCheck(int x, int y)
+    {
+        boolean arthur  = false       ; // Couldn't help myself..                
+
+        //look for Check by Pawn if Black King
+        if (gameB[x][y].colr == pC.B) 
+        {
+            if ((y + 1) != 8 && gameB[x + 1][y + 1] != null && gameB[x + 1][y + 1].colr == pC.W && gameB[x + 1][y + 1].type == pT.PAWN) 
+            {
+                arthur = true;
+
+            }
+            if (y != 0 && gameB[x + 1][y - 1] != null && gameB[x + 1][y - 1].colr == pC.W && gameB[x + 1][y - 1].type == pT.PAWN) 
+            {
+                arthur = true;
+
+            } 
+        } 
+        //look for Check by Pawn if White King
+        else if (gameB[x][y].colr == pC.W) 
+        {
+            if ((y + 1) != 8 && gameB[x - 1][y + 1] != null && gameB[x - 1][y + 1].colr == pC.B && gameB[x - 1][y + 1].type == pT.PAWN) 
+            {
+                arthur = true;
+            }
+            if (y != 0 && gameB[x - 1][y - 1] != null && gameB[x - 1][y - 1].colr == pC.B && gameB[x - 1][y - 1].type == pT.PAWN) 
+            {
+                arthur = true;
+            }
+        } 
+        // Knight Moves
+        //(-2,-1)
+        if ((x - 2) >= 0 && (y - 1) >= 0 && gameB[x - 2][y - 1] != null && gameB[x - 2][y - 1].type == pT.KNIGHT && gameB[x][y].colr != gameB[x - 2][y - 1].colr) 
+        {
+            arthur = true;
+        }
+        //(-2,+1)
+        if ((x - 2) >= 0 && (y + 1) <= 7 && gameB[x - 2][y + 1] != null && gameB[x - 2][y + 1].type == pT.KNIGHT && gameB[x][y].colr != gameB[x - 2][y + 1].colr) 
+        {
+            arthur = true;
+        }
+        //(+2, -1)
+        if ((x + 2) <= 7 && (y - 1) >= 0 && gameB[x + 2][y - 1] != null && gameB[x + 2][y - 1].type == pT.KNIGHT && gameB[x][y].colr != gameB[x + 2][y - 1].colr) 
+        {
+            arthur = true;
+        }
+
+        //(+2,+1)
+        if ((x + 2) <= 7 && (y + 1) <= 7 &&  gameB[x + 2][y + 1] != null && gameB[x + 2][y + 1].type == pT.KNIGHT && gameB[x][y].colr != gameB[x + 2][y + 1].colr) 
+        {
+            arthur = true;
+        }
+        //(-1,-2)
+        if ((x - 1) >= 0 && (y - 2) >= 0 && gameB[x - 1][y - 2] != null && gameB[x - 1][y - 2].type == pT.KNIGHT && gameB[x][y].colr != gameB[x - 1][y - 2].colr) 
+        {
+            arthur = true;
+        }
+        //(-1,+2)
+        if ((x - 1) >= 0 && (y + 2) <= 7 &&  gameB[x - 1][y + 2] != null && gameB[x - 1][y + 2].type == pT.KNIGHT && gameB[x][y].colr != gameB[x - 1][y + 2].colr) 
+        {
+            arthur = true;
+        }
+        //(+1,-2)
+        if ((x + 1) <= 7 && (y - 2) >= 0 && gameB[x + 1][y - 2] != null && gameB[x + 1][y - 2].type == pT.KNIGHT && gameB[x][y].colr != gameB[x + 1][y - 2].colr) 
+        {
+            arthur = true;
+        }
+        //(+1,+2)
+        if ((x + 1) <= 7 && (y + 2) <= 7 && gameB[x + 1][y + 2] != null && gameB[x + 1][y + 2].type == pT.KNIGHT && gameB[x][y].colr != gameB[x + 1][y + 2].colr) 
+        {
+            arthur = true;
+        }
+        
+        // Horizontal Right ( Queen or Rook)
+        for (int h = (y + 1); h <= 7; h++) 
+        {
+            if (gameB[x][h] != null && gameB[x][h].colr == gameB[x][y].colr) 
+            {
+                break;
+            } 
+            else if (gameB[x][h] != null && gameB[x][h].colr != gameB[x][y].colr && (gameB[x][h].type == pT.QUEEN || gameB[x][h].type == pT.ROOK)) 
+            {
+                arthur = true;
+                break;
+            } 
+        }
+        
+        // Horizontal Left (Queen or ROOK)
+        for (int h = (y - 1); h >= 0; h--) 
+        {
+            if (gameB[x][h] != null && gameB[x][h].colr == gameB[x][y].colr) 
+            {
+                break;
+            } 
+            else if (gameB[x][h] != null && gameB[x][h].colr != gameB[x][y].colr && (gameB[x][h].type == pT.QUEEN || gameB[x][h].type == pT.ROOK)) 
+            {
+                arthur = true;
+                break;
+            } 
+        }
+        
+        //Vertical Up (Queen or Rook)
+        for (int v = (x - 1); v >= 0; v--) 
+        {
+            if (gameB[v][y] != null && gameB[v][y].colr == gameB[x][y].colr) 
+            {
+                break;
+            } 
+            else if (gameB[v][y] != null && gameB[v][y].colr != gameB[x][y].colr && (gameB[v][y].type == pT.QUEEN || gameB[v][y].type == pT.ROOK)) 
+            {
+                arthur = true;
+                break;
+            }
+        }
+        
+        //Vertical Down (Queen or Rook)
+        for (int v = (x + 1); v <= 7; v++) 
+        {
+            if (gameB[v][y] != null && gameB[v][y].colr == gameB[x][y].colr) 
+            {
+                break;
+            } 
+            else if (gameB[v][y] != null && gameB[v][y].colr != gameB[x][y].colr && (gameB[v][y].type == pT.QUEEN || gameB[v][y].type == pT.ROOK)) 
+            {
+                arthur = true;
+                break;
+            }
+        }
+        
+        // Diagonal DR going right (+, +) (Queen or Bishop)
+	for (int a = (x+1), b = (y+1); a <= 7 && b <= 7 ; a++, b++)
+	{
+            if (gameB[a][b] != null && gameB[a][b].colr == gameB[x][y].colr) 
+            {
+                break;
+            } 
+            else if (gameB[a][b] != null && gameB[a][b].colr != gameB[x][y].colr && (gameB[a][b].type == pT.QUEEN || gameB[a][b].type == pT.BISHOP)) 
+            {
+                arthur = true;
+                break;
+            } 
+        }
+        
+        // Diagonal DR going to the left (-, -) (Queen or Bishop)
+        for (int a = (x-1), b = (y-1); a >= 0 && b >= 0 ; a--, b--)
+        {
+            if (gameB[a][b] != null && gameB[a][b].colr == gameB[x][y].colr) 
+            {
+                break;
+            } 
+            else if (gameB[a][b] != null && gameB[a][b].colr != gameB[x][y].colr && (gameB[a][b].type == pT.QUEEN || gameB[a][b].type == pT.BISHOP)) 
+            {
+                arthur = true;
+                break;
+            } 
+        }
+        
+        // Diagonal UR going right (-, +) (Queen or Bishop)
+        for (int c = (x-1), d = (y+1); c >= 0 && d <= 7 ; c--, d++)
+        {
+            if (gameB[c][d] != null && gameB[c][d].colr == gameB[x][y].colr) 
+            {
+                break;
+            } 
+            else if (gameB[c][d] != null && gameB[c][d].colr != gameB[x][y].colr && (gameB[c][d].type == pT.QUEEN || gameB[c][d].type == pT.BISHOP)) 
+            {
+                arthur = true;
+                break;
+            }
+        }
+        
+        // Diagonal UR going left (+, -) (Queen or Bishop)
+	for (int c = (x + 1), d = (y - 1); c <= 7 && d >= 0; c++, d--) 
+        {
+            if (gameB[c][d] != null && gameB[c][d].colr == gameB[x][y].colr) 
+            {
+                break;
+            } 
+            else if (gameB[c][d] != null && gameB[c][d].colr != gameB[x][y].colr && (gameB[c][d].type == pT.QUEEN || gameB[c][d].type == pT.BISHOP)) 
+            {
+                arthur = true;
+                break;
+            }
+        }
+        
+
+        return arthur;
+    }// End isCheck() method;
+    
+    
     
 }
