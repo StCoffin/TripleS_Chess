@@ -278,11 +278,11 @@ public class Piece
 		// all moves in vertical down
 		for (int a = (x+1); a <= 7 ; a++)
 		{
-			if (B[a][y] != null && B[a][y].colr() == B[x][y].colr())
+			if (B[a][y] != null && B[a][y].colr == B[x][y].colr)
 			{
 				break;
 			}
-			else if (B[a][y] != null && B[a][y].colr() != B[x][y].colr())
+			else if (B[a][y] != null && B[a][y].colr != B[x][y].colr)
 			{
 				moves[col][row] = a;
 				moves[col][row + 1] = y;
@@ -299,11 +299,11 @@ public class Piece
 		// all moves in vertical up
 		for (int a = (x - 1); a >= 0 ; a--)
 		{
-			if (B[a][y] != null && B[a][y].colr() == B[x][y].colr() )
+			if (B[a][y] != null && B[a][y].colr == B[x][y].colr )
 			{
 				break;
 			}
-			else if (B[a][y] != null && B[a][y].colr() != B[x][y].colr())
+			else if (B[a][y] != null && B[a][y].colr != B[x][y].colr)
 			{
 				moves[col][row] = a ;
 				moves[col][row + 1] = y ;
@@ -320,11 +320,11 @@ public class Piece
 		// all moves in horizontal right
 		for (int c = (y+1); c <= 7 ; c++)
 		{
-			if (B[x][c] != null && B[x][c].colr() == B[x][y].colr())
+			if (B[x][c] != null && B[x][c].colr == B[x][y].colr)
 			{
 				break;
 			}
-			else if (B[x][c] != null && B[x][c].colr() != B[x][y].colr())
+			else if (B[x][c] != null && B[x][c].colr != B[x][y].colr)
 			{
 				moves[col][row] = x;
 				moves[col][row + 1] = c;
@@ -384,11 +384,11 @@ public class Piece
 		// all moves in diagonal DR going right (+, +)
 		for (int a = (x+1), b = (y+1); a <= 7 && b <= 7 ; a++, b++)
 		{
-			if (B[a][b] != null && B[a][b].colr() == B[x][y].colr())
+			if (B[a][b] != null && B[a][b].colr == B[x][y].colr)
 			{
 				break;
 			}
-			else if (B[a][b] != null && B[a][b].colr() != B[x][y].colr())
+			else if (B[a][b] != null && B[a][b].colr != B[x][y].colr)
 			{
 
 				moves[col][row] = a;
@@ -407,11 +407,11 @@ public class Piece
 		// all moves in diagonal DR going left (-, -)
 		for (int a = (x-1), b = (y-1); a >= 0 && b >= 0 ; a--, b--)
 		{
-			if (B[a][b] != null && B[a][b].colr() == B[x][y].colr() )
+			if (B[a][b] != null && B[a][b].colr == B[x][y].colr )
 			{
 				break;
 			}
-			else if (B[a][b] != null && B[a][b].colr() != B[x][y].colr())
+			else if (B[a][b] != null && B[a][b].colr != B[x][y].colr)
 			{
 				moves[col][row] = a ;
 				moves[col][row + 1] = b ;
@@ -429,11 +429,11 @@ public class Piece
 		// all moves in diagonal UR going right (-, +)
 		for (int c = (x-1), d = (y+1); c >= 0 && d <= 7 ; c--, d++)
 		{
-			if (B[c][d] != null && B[c][d].colr() == B[x][y].colr())
+			if (B[c][d] != null && B[c][d].colr == B[x][y].colr)
 			{
 				break;
 			}
-			else if (B[c][d] != null && B[c][d].colr() != B[x][y].colr())
+			else if (B[c][d] != null && B[c][d].colr != B[x][y].colr)
 			{
 				moves[col][row] = c;
 				moves[col][row + 1] = d;
