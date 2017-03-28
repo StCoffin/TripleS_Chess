@@ -126,6 +126,7 @@ public class Board extends JFrame
                     movePiece(x1, y1, x2, y2);
                     wCheck = isCheck(KWX, KWY);
                     bCheck = isCheck(KBX, KBY);
+                    paintCheck();
                     System.out.println("in check b? " + bCheck);
                     System.out.println("in check w? " + wCheck);
                     mCount = 0;
@@ -140,6 +141,7 @@ public class Board extends JFrame
                 movePiece(x1, y1, x2, y2);
                 wCheck = isCheck(KWX, KWY);
                 bCheck = isCheck(KBX, KBY);
+                paintCheck();
                 System.out.println("in check b? " + bCheck);
                 System.out.println("in check w? " + wCheck);      
                 mCount = 0;
@@ -237,9 +239,24 @@ public class Board extends JFrame
     } // End unpaintPotMoves()
     
     // Method to Paint the current status of Check: RED == In-check, standard BLUE == not-in-check
-    public void paintCheck(pC A, boolean z)
+    public void paintCheck()
     {
-
+        if (wCheck == true)
+        {
+            CB[KWX][KWY].setForeground(Color.red);
+        }
+        else if (wCheck == false)
+        {
+            CB[KWX][KWY].setForeground(Color.blue);
+        }
+        if (bCheck == true)
+        {
+            CB[KBX][KBY].setForeground(Color.red);
+        }
+        else if (bCheck == false)
+        {
+            CB[KBX][KBY].setForeground(Color.blue);
+        }
     }
     
     // Initialize gameB Board and print out basic setup, ~ = null spaces
@@ -330,25 +347,10 @@ public class Board extends JFrame
         }
 
     } // End initBoard()
-    
-    
-    // Test method for Valid Move Print out.
-    public void print2Array(int[][] mark)
-    {
-        for (int i = 0; i < mark.length ; i++)
-		{
-			for (int j = 0 ; j < 2 ; j++)
-			{	
-                            System.out.print(mark[i][j] + " , ");
-			}
-			System.out.println();
-		}
-    }
-    
+ 
     
     // Variables and 'Item' initialization
 
-    
     public Piece[][] gameB = new Piece[8][8];
     Piece holdPiece = new Piece();
     JPanel PanelOne  = new JPanel();
@@ -361,7 +363,7 @@ public class Board extends JFrame
     boolean wCheck;
     boolean bCheck;
     
-    
+    // Method to Calculate If in check
     public boolean isCheck(int x, int y)
     {
         boolean arthur  = false       ; // Couldn't help myself..                
