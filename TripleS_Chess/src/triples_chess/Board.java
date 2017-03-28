@@ -57,7 +57,7 @@ public class Board extends JFrame
             {
                 for (int row = 0; row < 8; row++) 
                 {
-                    CB[col][row] = new JButton(col + "" + row);
+                    CB[col][row] = new JButton(); //col + "" + row
                     CB[col][row].setForeground(Color.blue);
                     if (col % 2 == row % 2) 
                     {
@@ -178,7 +178,7 @@ public class Board extends JFrame
                     CB[xb][yb].setText(gameB[xb][yb].getImgID());
                     gameB[xb][yb].isMoved();
                     gameB[xa][ya] = null;
-                    CB[xa][ya].setText(xa + " " + ya);
+                    CB[xa][ya].setText(" ");
                     
                 } 
                 // if any piece besides a king
@@ -189,7 +189,7 @@ public class Board extends JFrame
                     CB[xb][yb].setText(gameB[xb][yb].getImgID());
                     gameB[xb][yb].isMoved();
                     gameB[xa][ya] = null;
-                    CB[xa][ya].setText(xa + " " + ya);
+                    CB[xa][ya].setText(" ");
                 }
             }
         }
@@ -209,7 +209,8 @@ public class Board extends JFrame
     		{
     		col = posit[i][k];
     		row = posit[i][k+1];
-    		CB[col][row].setForeground(Color.green);
+                CB[col][row].setBackground(Color.green);
+    		//CB[col][row].setForeground(Color.green);
     		}
     		else
     		{
@@ -229,7 +230,15 @@ public class Board extends JFrame
             {
                 col = posit[i][k];
                 row = posit[i][k + 1];
-                CB[col][row].setForeground(Color.blue);
+                if (col % 2 == row % 2) 
+                {
+                    CB[col][row].setBackground(Color.gray);
+                } 
+                else 
+                {
+                    CB[col][row].setBackground(Color.white);
+                }
+
             } 
             else 
             {
@@ -328,7 +337,10 @@ public class Board extends JFrame
         wCheck = false;
         KWX = 7;
         KWY = 4;
+        
+        moveCount = 0;
 
+        /**
         //print list of pieces
         for (int i = 0; i < 8; i++) 
         {
@@ -344,7 +356,8 @@ public class Board extends JFrame
                 }
             }
             System.out.println();
-        }
+        } 
+        * **/
 
     } // End initBoard()
  
@@ -362,6 +375,7 @@ public class Board extends JFrame
     int KWX, KWY ;
     boolean wCheck;
     boolean bCheck;
+    int moveCount = 0;
     
     // Method to Calculate If in check
     public boolean isCheck(int x, int y)
