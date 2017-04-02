@@ -17,7 +17,24 @@ import javax.swing.*;
 
 public class Board extends JFrame
 {
-	public Board()
+    // Variables and 'Item' initialization
+
+    public Piece[][] gameB = new Piece[8][8];
+    Piece holdPiece = new Piece();
+    JPanel PanelOne  = new JPanel();
+    JButton CB[][] = new JButton[8][8];
+    int mCount = 0;
+    int x1, y1, x2, y2, xHold, yHold;
+    int[][] validMoves ;
+    int KBX, KBY ;
+    int KWX, KWY ;
+    boolean wCheck;
+    boolean bCheck;
+    int moveCount = 0;
+    
+    
+    
+    public Board()
     {
         int Row,Col;
    	 
@@ -28,11 +45,11 @@ public class Board extends JFrame
    	 Col = XY.height;
    	 
    	 setSize	(25*Row/80	, Col/2		);
-   	 setLocation(13*Row/32	, Col/4		);
+   	 setLocation    (13*Row/32	, Col/4		);
    	 
    	 setTitle						("Testing of Chess Movement for TripleS" );
    	 
-   	 boardPanel PanelGame			= new boardPanel ();
+   	 boardPanel PanelGame		= new boardPanel ();
    	 Container ContentPanel01 	= getContentPane();
    	 ContentPanel01.add(PanelGame);
         
@@ -210,7 +227,6 @@ public class Board extends JFrame
     		col = posit[i][k];
     		row = posit[i][k+1];
                 CB[col][row].setBackground(Color.green);
-    		//CB[col][row].setForeground(Color.green);
     		}
     		else
     		{
@@ -266,7 +282,7 @@ public class Board extends JFrame
         {
             CB[KBX][KBY].setForeground(Color.blue);
         }
-    }
+    } //End paintCheck()
     
     // Initialize gameB Board and print out basic setup, ~ = null spaces
     public void initBoard() 
@@ -340,42 +356,10 @@ public class Board extends JFrame
         
         moveCount = 0;
 
-        /**
-        //print list of pieces
-        for (int i = 0; i < 8; i++) 
-        {
-            for (int j = 0; j < 8; j++) 
-            {
-                if (gameB[i][j] == null) 
-                {
-                    System.out.print(" ~~ " + " | ");
-                } 
-                else 
-                {
-                    System.out.print( gameB[i][j].getImgID() + " | ");
-                }
-            }
-            System.out.println();
-        } 
-        * **/
 
     } // End initBoard()
  
-    
-    // Variables and 'Item' initialization
 
-    public Piece[][] gameB = new Piece[8][8];
-    Piece holdPiece = new Piece();
-    JPanel PanelOne  = new JPanel();
-    JButton CB[][] = new JButton[8][8];
-    int mCount = 0;
-    int x1, y1, x2, y2, xHold, yHold;
-    int[][] validMoves ;
-    int KBX, KBY ;
-    int KWX, KWY ;
-    boolean wCheck;
-    boolean bCheck;
-    int moveCount = 0;
     
     // Method to Calculate If in check
     public boolean isCheck(int x, int y)

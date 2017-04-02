@@ -10,11 +10,17 @@ package triples_chess;
  */
 
 
-public class Piece 
+
+public class Piece
 {
+    	public String   pImg    ;
+	pT              type    ;
+	pC              colr    ;
+	public int      hasMoved;
+	private int[][] moves   ;
+    
 	public Piece()
 	{	}
-	
 	
 	public Piece( pT type, pC colr)
 	{
@@ -32,7 +38,7 @@ public class Piece
 		}
 		if (type == pT.PAWN)
 		{
-			pImg = pImg + "pwn";
+			pImg = pImg + "Pwn";  
 		}
 		else if (type == pT.ROOK)
 		{
@@ -778,6 +784,7 @@ public class Piece
 	{
 		return pImg;
 	}
+        
 	
 	public String toString()
 	{
@@ -794,10 +801,6 @@ public class Piece
 		hasMoved = hasMoved + 1;
 	}
 
-	public String pImg		;
-	pT 	type				;
-	pC 	colr				;
-	public int hasMoved		;
-	private int[][] moves;
+
 }
 
