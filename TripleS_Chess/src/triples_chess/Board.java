@@ -54,7 +54,7 @@ public class Board extends JFrame
    	 ContentPanel01.add(PanelGame);
         
         
-        initBoard();
+        initBoard(); // Populate 
         
         
     } // End Board
@@ -210,6 +210,7 @@ public class Board extends JFrame
                 }
             }
         }
+    
 
     }// End movePiece()
     

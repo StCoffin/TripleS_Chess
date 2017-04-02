@@ -27,7 +27,7 @@ public class Piece
 		
 		this.type 	= type	;
 		this.colr 	= colr 	;
-		this.hasMoved	= 0		;
+		this.hasMoved	= 0	;
 		if(colr == pC.W)
 		{
 			pImg = "W";
