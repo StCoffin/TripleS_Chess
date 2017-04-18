@@ -439,7 +439,7 @@ public class Board extends JFrame
         // Horizontal Right ( Queen or Rook)
         for (int h = (y + 1); h <= 7; h++) 
         {
-            if (gameB[x][h] != null && gameB[x][h].colr == gameB[x][y].colr) 
+            if (gameB[x][h] != null && (gameB[x][h].colr == gameB[x][y].colr || ( gameB[x][h].colr != gameB[x][y].colr && gameB[x][h].type == pT.PAWN))) 
             {
                 break;
             } 
@@ -453,7 +453,7 @@ public class Board extends JFrame
         // Horizontal Left (Queen or ROOK)
         for (int h = (y - 1); h >= 0; h--) 
         {
-            if (gameB[x][h] != null && gameB[x][h].colr == gameB[x][y].colr) 
+            if (gameB[x][h] != null && (gameB[x][h].colr == gameB[x][y].colr || ( gameB[x][h].colr != gameB[x][y].colr && gameB[x][h].type == pT.PAWN)))
             {
                 break;
             } 
@@ -467,7 +467,7 @@ public class Board extends JFrame
         //Vertical Up (Queen or Rook)
         for (int v = (x - 1); v >= 0; v--) 
         {
-            if (gameB[v][y] != null && gameB[v][y].colr == gameB[x][y].colr) 
+            if (gameB[v][y] != null && (gameB[v][y].colr == gameB[x][y].colr || (gameB[v][y].colr != gameB[x][y].colr && gameB[v][y].type == pT.PAWN))) 
             {
                 break;
             } 
@@ -481,7 +481,7 @@ public class Board extends JFrame
         //Vertical Down (Queen or Rook)
         for (int v = (x + 1); v <= 7; v++) 
         {
-            if (gameB[v][y] != null && gameB[v][y].colr == gameB[x][y].colr) 
+            if (gameB[v][y] != null && (gameB[v][y].colr == gameB[x][y].colr || (gameB[v][y].colr != gameB[x][y].colr && gameB[v][y].type == pT.PAWN))) 
             {
                 break;
             } 
@@ -495,7 +495,7 @@ public class Board extends JFrame
         // Diagonal DR going right (+, +) (Queen or Bishop)
 	for (int a = (x+1), b = (y+1); a <= 7 && b <= 7 ; a++, b++)
 	{
-            if (gameB[a][b] != null && gameB[a][b].colr == gameB[x][y].colr) 
+            if (gameB[a][b] != null && (gameB[a][b].colr == gameB[x][y].colr || (gameB[a][b].colr != gameB[x][y].colr && gameB[a][b].type == pT.PAWN))) 
             {
                 break;
             } 
@@ -509,7 +509,7 @@ public class Board extends JFrame
         // Diagonal DR going to the left (-, -) (Queen or Bishop)
         for (int a = (x-1), b = (y-1); a >= 0 && b >= 0 ; a--, b--)
         {
-            if (gameB[a][b] != null && gameB[a][b].colr == gameB[x][y].colr) 
+            if (gameB[a][b] != null && (gameB[a][b].colr == gameB[x][y].colr || (gameB[a][b].colr != gameB[x][y].colr && gameB[a][b].type == pT.PAWN))) 
             {
                 break;
             } 
@@ -523,7 +523,7 @@ public class Board extends JFrame
         // Diagonal UR going right (-, +) (Queen or Bishop)
         for (int c = (x-1), d = (y+1); c >= 0 && d <= 7 ; c--, d++)
         {
-            if (gameB[c][d] != null && gameB[c][d].colr == gameB[x][y].colr) 
+            if (gameB[c][d] != null && (gameB[c][d].colr == gameB[x][y].colr || (gameB[c][d].colr != gameB[x][y].colr && gameB[c][d].type == pT.PAWN))) 
             {
                 break;
             } 
@@ -537,7 +537,7 @@ public class Board extends JFrame
         // Diagonal UR going left (+, -) (Queen or Bishop)
 	for (int c = (x + 1), d = (y - 1); c <= 7 && d >= 0; c++, d--) 
         {
-            if (gameB[c][d] != null && gameB[c][d].colr == gameB[x][y].colr) 
+            if (gameB[c][d] != null && (gameB[c][d].colr == gameB[x][y].colr || (gameB[c][d].colr != gameB[x][y].colr && gameB[c][d].type == pT.PAWN))) 
             {
                 break;
             } 
