@@ -15,15 +15,29 @@ import javax.swing.*;
 public class Piece
 {
     	public String   pImg    ;                                                                                                                                                                                                                                                               
-         
-        public ImageIcon pwnImg ;
 	pT              type    ;
 	pC              colr    ;
 	public int      hasMoved;
 	private int[][] moves   ;
         
-        String WPwn = "PW60.png";
-    
+        /**
+         * "Triple S Chess Icons" by en:User:Cburnett is licensed under CC BY 3.0
+         */
+        String WPwn = "PW60.png" ;
+        String BPwn = "PB60.png" ;
+        String WRok = "RW60.png" ;
+        String BRok = "RB60.png" ;
+        String WKnt = "KnW60.png";
+        String BKnt = "KnB60.png";
+        String WBis = "BW60.png" ;
+        String BBis = "BB60.png" ;
+        String WQue = "QW60.png" ;
+        String BQue = "QB60.png" ;
+        String WAce = "KW60.png" ;
+        String BAce = "KB60.png" ;
+        
+        
+        
 	public Piece()
 	{	}
 	
@@ -33,39 +47,62 @@ public class Piece
 		this.type 	= type	;
 		this.colr 	= colr 	;
 		this.hasMoved	= 0	;
-		if(colr == pC.W)
-		{
-			pImg = "W";
-		}
-		else if (colr == pC.B)
-		{
-			pImg = "B";
-		}
-		if (type == pT.PAWN)
-		{
+            if (colr == pC.W) 
+            {
+
+                if (type == pT.PAWN) 
+                {
                     pImg = WPwn;
-                    //pImg = pImg + "Pwn";  
-		}
-		else if (type == pT.ROOK)
-		{
-			pImg = pImg + "Rok";
-		}
-		else if (type == pT.KNIGHT)
-		{
-			pImg = pImg + "Knt";
-		}
-		else if (type == pT.BISHOP)
-		{
-			pImg = pImg + "Bis";
-		}
-		else if (type == pT.QUEEN)
-		{
-			pImg = pImg + "Que";
-		}
-		else if (type == pT.KING)
-		{
-			pImg = pImg + "Ace";
-		}
+                } 
+                else if (type == pT.ROOK) 
+                {
+                    pImg = WRok;
+                } 
+                else if (type == pT.KNIGHT) 
+                {
+                    pImg = WKnt;
+                } 
+                else if (type == pT.BISHOP) 
+                {
+                    pImg = WBis;
+                } 
+                else if (type == pT.QUEEN) 
+                {
+                    pImg = WQue;
+                } 
+                else if (type == pT.KING) 
+                {
+                    pImg = WAce;
+                }
+            }
+            if (colr == pC.B)
+            {
+                //pImg = "B";
+                if (type == pT.PAWN) 
+                {
+                    pImg = BPwn;
+                } 
+                else if (type == pT.ROOK) 
+                {
+                    pImg = BRok;
+                } 
+                else if (type == pT.KNIGHT) 
+                {
+                    pImg = BKnt;
+                } 
+                else if (type == pT.BISHOP) 
+                {
+                    pImg = BBis;
+                } 
+                else if (type == pT.QUEEN) 
+                {
+                    pImg = BQue;
+                } 
+                else if (type == pT.KING) 
+                {
+                    pImg = BAce;
+                }
+            }
 		
 	}
 	
@@ -806,10 +843,6 @@ public class Piece
 	{
 		hasMoved = hasMoved + 1;
 	}
-        public ImageIcon getImgImg()
-        {
-            return pwnImg;
-        }
 
 
 }

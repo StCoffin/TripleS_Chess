@@ -184,19 +184,43 @@ public class Board extends JFrame
                         KWX = xb;
                         KWY = yb;
                         System.out.println("new King White Position X: " + KWX + " Y: " + KWY);
+                        if (wCheck == true)
+                        {
+                            if (xa % 2 == ya % 2) 
+                            {
+                                CB[xa][ya].setBackground(Color.gray);
+                            } 
+                            else 
+                            {
+                                CB[xa][ya].setBackground(Color.white);
+                            }
+                        }
+                    
+                    
                     } 
                     else if ((gameB[xb][yb] == null || gameB[xb][yb] != null) && gameB[xa][ya].colr == pC.B) 
                     {
                         KBX = xb;
                         KBY = yb;
                         System.out.println("new King White Position X: " + KBX + " Y: " + KBY);
+                        if (bCheck == true)
+                        {
+                            if (xa % 2 == ya % 2) 
+                            {
+                                CB[xa][ya].setBackground(Color.gray);
+                            } 
+                            else 
+                            {
+                                CB[xa][ya].setBackground(Color.white);
+                            }
+                        }
                     }
                     holdPiece = gameB[xb][yb];
                     gameB[xb][yb] = gameB[xa][ya];
-                    CB[xb][yb].setText(gameB[xb][yb].getImgID());
+                    CB[xb][yb].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[xb][yb].getImgID())) );
                     gameB[xb][yb].isMoved();
                     gameB[xa][ya] = null;
-                    CB[xa][ya].setText(" ");
+                    CB[xa][ya].setIcon( new javax.swing.ImageIcon(getClass().getResource("Empty.png")) );
                     
                 } 
                 // if any piece besides a king
@@ -204,10 +228,10 @@ public class Board extends JFrame
                 {
                     holdPiece = gameB[xb][yb];
                     gameB[xb][yb] = gameB[xa][ya];
-                    CB[xb][yb].setText(gameB[xb][yb].getImgID());
+                    CB[xb][yb].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[xb][yb].getImgID())) );
                     gameB[xb][yb].isMoved();
                     gameB[xa][ya] = null;
-                    CB[xa][ya].setText(" ");
+                    CB[xa][ya].setIcon( new javax.swing.ImageIcon(getClass().getResource("Empty.png")) );
                 }
             }
         }
@@ -270,19 +294,33 @@ public class Board extends JFrame
     {
         if (wCheck == true)
         {
-            CB[KWX][KWY].setForeground(Color.red);
+            CB[KWX][KWY].setBackground(Color.red);
         }
         else if (wCheck == false)
         {
-            CB[KWX][KWY].setForeground(Color.blue);
+            if (KWX % 2 == KWY % 2) 
+            {
+                CB[KWX][KWY].setBackground(Color.gray);
+            } 
+            else 
+            {
+                CB[KWX][KWY].setBackground(Color.white);
+            }
         }
         if (bCheck == true)
         {
-            CB[KBX][KBY].setForeground(Color.red);
+            CB[KBX][KBY].setBackground(Color.red);
         }
         else if (bCheck == false)
         {
-            CB[KBX][KBY].setForeground(Color.blue);
+            if (KBX % 2 == KBY % 2) 
+            {
+                CB[KBX][KBY].setBackground(Color.gray);
+            } 
+            else 
+            {
+                CB[KBX][KBY].setBackground(Color.white);
+            }
         }
     } //End paintCheck()
     
