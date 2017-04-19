@@ -44,10 +44,11 @@ public class Board extends JFrame
    	 Row = XY.width;
    	 Col = XY.height;
    	 
-   	 setSize	(25*Row/80	, Col/2		);
+   	 setSize	(25*Row/80	, Col/2		);   
+         
    	 setLocation    (13*Row/32	, Col/4		);
    	 
-   	 setTitle						("Testing of Chess Movement for TripleS" );
+   	 setTitle						("Chess by Team Triple S" );
    	 
    	 boardPanel PanelGame		= new boardPanel ();
    	 Container ContentPanel01 	= getContentPane();
@@ -74,7 +75,7 @@ public class Board extends JFrame
             {
                 for (int row = 0; row < 8; row++) 
                 {
-                    CB[col][row] = new JButton(); //col + "" + row
+                    CB[col][row] = new JButton();
                     CB[col][row].setForeground(Color.blue);
                     if (col % 2 == row % 2) 
                     {
@@ -183,19 +184,43 @@ public class Board extends JFrame
                         KWX = xb;
                         KWY = yb;
                         System.out.println("new King White Position X: " + KWX + " Y: " + KWY);
+                        if (wCheck == true)
+                        {
+                            if (xa % 2 == ya % 2) 
+                            {
+                                CB[xa][ya].setBackground(Color.gray);
+                            } 
+                            else 
+                            {
+                                CB[xa][ya].setBackground(Color.white);
+                            }
+                        }
+                    
+                    
                     } 
                     else if ((gameB[xb][yb] == null || gameB[xb][yb] != null) && gameB[xa][ya].colr == pC.B) 
                     {
                         KBX = xb;
                         KBY = yb;
                         System.out.println("new King White Position X: " + KBX + " Y: " + KBY);
+                        if (bCheck == true)
+                        {
+                            if (xa % 2 == ya % 2) 
+                            {
+                                CB[xa][ya].setBackground(Color.gray);
+                            } 
+                            else 
+                            {
+                                CB[xa][ya].setBackground(Color.white);
+                            }
+                        }
                     }
                     holdPiece = gameB[xb][yb];
                     gameB[xb][yb] = gameB[xa][ya];
-                    CB[xb][yb].setText(gameB[xb][yb].getImgID());
+                    CB[xb][yb].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[xb][yb].getImgID())) );
                     gameB[xb][yb].isMoved();
                     gameB[xa][ya] = null;
-                    CB[xa][ya].setText(" ");
+                    CB[xa][ya].setIcon( new javax.swing.ImageIcon(getClass().getResource("Empty.png")) );
                     
                 } 
                 // if any piece besides a king
@@ -203,10 +228,10 @@ public class Board extends JFrame
                 {
                     holdPiece = gameB[xb][yb];
                     gameB[xb][yb] = gameB[xa][ya];
-                    CB[xb][yb].setText(gameB[xb][yb].getImgID());
+                    CB[xb][yb].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[xb][yb].getImgID())) );
                     gameB[xb][yb].isMoved();
                     gameB[xa][ya] = null;
-                    CB[xa][ya].setText(" ");
+                    CB[xa][ya].setIcon( new javax.swing.ImageIcon(getClass().getResource("Empty.png")) );
                 }
             }
         }
@@ -269,19 +294,33 @@ public class Board extends JFrame
     {
         if (wCheck == true)
         {
-            CB[KWX][KWY].setForeground(Color.red);
+            CB[KWX][KWY].setBackground(Color.red);
         }
         else if (wCheck == false)
         {
-            CB[KWX][KWY].setForeground(Color.blue);
+            if (KWX % 2 == KWY % 2) 
+            {
+                CB[KWX][KWY].setBackground(Color.gray);
+            } 
+            else 
+            {
+                CB[KWX][KWY].setBackground(Color.white);
+            }
         }
         if (bCheck == true)
         {
-            CB[KBX][KBY].setForeground(Color.red);
+            CB[KBX][KBY].setBackground(Color.red);
         }
         else if (bCheck == false)
         {
-            CB[KBX][KBY].setForeground(Color.blue);
+            if (KBX % 2 == KBY % 2) 
+            {
+                CB[KBX][KBY].setBackground(Color.gray);
+            } 
+            else 
+            {
+                CB[KBX][KBY].setBackground(Color.white);
+            }
         }
     } //End paintCheck()
     
@@ -296,12 +335,12 @@ public class Board extends JFrame
                 if (i == 1) 
                 {
                     gameB[i][j] = (new Piece (pT.PAWN, pC.B));
-                    CB[i][j].setText( gameB[i][j].getImgID() );
+                    CB[i][j].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[i][j].getImgID())) );
                 } 
                 else if (i == 6) 
                 {
                     gameB[i][j] = (new Piece (pT.PAWN, pC.W));
-                    CB[i][j].setText( gameB[i][j].getImgID() );
+                    CB[i][j].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[i][j].getImgID())) );
                     
                 }
             }
@@ -309,48 +348,48 @@ public class Board extends JFrame
 
         // Rooks
         gameB[0][0] = (new Piece (pT.ROOK, pC.B));
-        CB[0][0].setText( gameB[0][0].getImgID());
+        CB[0][0].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[0][0].getImgID())) );
         gameB[0][7] = (new Piece (pT.ROOK, pC.B));
-        CB[0][7].setText( gameB[0][7].getImgID());
+        CB[0][7].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[0][7].getImgID())) );
         gameB[7][0] = (new Piece (pT.ROOK, pC.W));
-        CB[7][0].setText( gameB[7][0].getImgID());
+        CB[7][0].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[7][0].getImgID())) );
         gameB[7][7] = (new Piece (pT.ROOK, pC.W));
-        CB[7][7].setText( gameB[7][7].getImgID());
+        CB[7][7].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[7][7].getImgID())) );
 
         //Knights
         gameB[0][1] = (new Piece (pT.KNIGHT, pC.B));
-        CB[0][1].setText( gameB[0][1].getImgID());
+        CB[0][1].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[0][1].getImgID())) );
         gameB[0][6] = (new Piece (pT.KNIGHT, pC.B));
-        CB[0][6].setText( gameB[0][6].getImgID());
+        CB[0][6].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[0][6].getImgID())) );
         gameB[7][1] = (new Piece (pT.KNIGHT, pC.W));
-        CB[7][1].setText( gameB[7][1].getImgID());
+        CB[7][1].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[7][1].getImgID())) );
         gameB[7][6] = (new Piece (pT.KNIGHT, pC.W));
-        CB[7][6].setText( gameB[7][6].getImgID());
+        CB[7][6].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[7][6].getImgID())) );
 
         //Bishops
         gameB[0][2] = (new Piece (pT.BISHOP, pC.B));
-        CB[0][2].setText( gameB[0][2].getImgID());
+        CB[0][2].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[0][2].getImgID())) );
         gameB[0][5] = (new Piece (pT.BISHOP, pC.B));
-        CB[0][5].setText( gameB[0][5].getImgID());
+        CB[0][5].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[0][5].getImgID())) );
         gameB[7][2] = (new Piece (pT.BISHOP, pC.W));
-        CB[7][2].setText( gameB[7][2].getImgID());
+        CB[7][2].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[7][2].getImgID())) );
         gameB[7][5] = (new Piece (pT.BISHOP, pC.W));
-        CB[7][5].setText( gameB[7][5].getImgID());
+        CB[7][5].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[7][5].getImgID())) );
 
         //Queens
         gameB[0][3] = (new Piece (pT.QUEEN, pC.B ));
-        CB[0][3].setText( gameB[0][3].getImgID());
+        CB[0][3].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[0][3].getImgID())) );
         gameB[7][3] = (new Piece (pT.QUEEN, pC.W));
-        CB[7][3].setText( gameB[7][3].getImgID());
+        CB[7][3].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[7][3].getImgID())) );
 
         //Kings
         gameB[0][4] = (new Piece (pT.KING, pC.B));
-        CB[0][4].setText( gameB[0][4].getImgID());
+        CB[0][4].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[0][4].getImgID())) );
         bCheck = false;
         KBX = 0;
         KBY = 4;
         gameB[7][4] = (new Piece (pT.KING, pC.W));
-        CB[7][4].setText( gameB[7][4].getImgID());
+        CB[7][4].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[7][4].getImgID())) );
         wCheck = false;
         KWX = 7;
         KWY = 4;
@@ -553,5 +592,7 @@ public class Board extends JFrame
     }// End isCheck() method;
     
     
+    
+    ImageIcon PawnW = new ImageIcon("PW60.png");
     
 }
