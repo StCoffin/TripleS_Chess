@@ -302,7 +302,7 @@ public class Board extends JFrame
                 else if (i == 6) 
                 {
                     gameB[i][j] = (new Piece (pT.PAWN, pC.W));
-                    CB[i][j].setText( gameB[i][j].getImgID() );
+                    CB[i][j].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[i][j].getImgID())) );
                     
                 }
             }
