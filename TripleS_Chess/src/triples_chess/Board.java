@@ -44,7 +44,8 @@ public class Board extends JFrame
    	 Row = XY.width;
    	 Col = XY.height;
    	 
-   	 setSize	(25*Row/80	, Col/2		);
+   	 setSize	(25*Row/80	, Col/2		);   
+         
    	 setLocation    (13*Row/32	, Col/4		);
    	 
    	 setTitle						("Testing of Chess Movement for TripleS" );
@@ -74,7 +75,7 @@ public class Board extends JFrame
             {
                 for (int row = 0; row < 8; row++) 
                 {
-                    CB[col][row] = new JButton(); //col + "" + row
+                    CB[col][row] = new JButton();
                     CB[col][row].setForeground(Color.blue);
                     if (col % 2 == row % 2) 
                     {
@@ -296,7 +297,7 @@ public class Board extends JFrame
                 if (i == 1) 
                 {
                     gameB[i][j] = (new Piece (pT.PAWN, pC.B));
-                    CB[i][j].setText( gameB[i][j].getImgID() );
+                    CB[i][j].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[i][j].getImgID())) );
                 } 
                 else if (i == 6) 
                 {
@@ -553,5 +554,7 @@ public class Board extends JFrame
     }// End isCheck() method;
     
     
+    
+    ImageIcon PawnW = new ImageIcon("PW60.png");
     
 }

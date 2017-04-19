@@ -9,15 +9,20 @@ package triples_chess;
  * @author Stcof
  */
 
+import javax.swing.*;
 
 
 public class Piece
 {
-    	public String   pImg    ;
+    	public String   pImg    ;                                                                                                                                                                                                                                                               
+         
+        public ImageIcon pwnImg ;
 	pT              type    ;
 	pC              colr    ;
 	public int      hasMoved;
 	private int[][] moves   ;
+        
+        String WPwn = "PW60.png";
     
 	public Piece()
 	{	}
@@ -38,7 +43,8 @@ public class Piece
 		}
 		if (type == pT.PAWN)
 		{
-			pImg = pImg + "Pwn";  
+                    pImg = WPwn;
+                    //pImg = pImg + "Pwn";  
 		}
 		else if (type == pT.ROOK)
 		{
@@ -800,6 +806,10 @@ public class Piece
 	{
 		hasMoved = hasMoved + 1;
 	}
+        public ImageIcon getImgImg()
+        {
+            return pwnImg;
+        }
 
 
 }
