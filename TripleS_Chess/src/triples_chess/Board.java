@@ -48,7 +48,7 @@ public class Board extends JFrame
          
    	 setLocation    (13*Row/32	, Col/4		);
    	 
-   	 setTitle						("Testing of Chess Movement for TripleS" );
+   	 setTitle						("Chess by Team Triple S" );
    	 
    	 boardPanel PanelGame		= new boardPanel ();
    	 Container ContentPanel01 	= getContentPane();
