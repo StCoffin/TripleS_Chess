@@ -310,48 +310,48 @@ public class Board extends JFrame
 
         // Rooks
         gameB[0][0] = (new Piece (pT.ROOK, pC.B));
-        CB[0][0].setText( gameB[0][0].getImgID());
+        CB[0][0].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[0][0].getImgID())) );
         gameB[0][7] = (new Piece (pT.ROOK, pC.B));
-        CB[0][7].setText( gameB[0][7].getImgID());
+        CB[0][7].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[0][7].getImgID())) );
         gameB[7][0] = (new Piece (pT.ROOK, pC.W));
-        CB[7][0].setText( gameB[7][0].getImgID());
+        CB[7][0].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[7][0].getImgID())) );
         gameB[7][7] = (new Piece (pT.ROOK, pC.W));
-        CB[7][7].setText( gameB[7][7].getImgID());
+        CB[7][7].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[7][7].getImgID())) );
 
         //Knights
         gameB[0][1] = (new Piece (pT.KNIGHT, pC.B));
-        CB[0][1].setText( gameB[0][1].getImgID());
+        CB[0][1].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[0][1].getImgID())) );
         gameB[0][6] = (new Piece (pT.KNIGHT, pC.B));
-        CB[0][6].setText( gameB[0][6].getImgID());
+        CB[0][6].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[0][6].getImgID())) );
         gameB[7][1] = (new Piece (pT.KNIGHT, pC.W));
-        CB[7][1].setText( gameB[7][1].getImgID());
+        CB[7][1].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[7][1].getImgID())) );
         gameB[7][6] = (new Piece (pT.KNIGHT, pC.W));
-        CB[7][6].setText( gameB[7][6].getImgID());
+        CB[7][6].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[7][6].getImgID())) );
 
         //Bishops
         gameB[0][2] = (new Piece (pT.BISHOP, pC.B));
-        CB[0][2].setText( gameB[0][2].getImgID());
+        CB[0][2].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[0][2].getImgID())) );
         gameB[0][5] = (new Piece (pT.BISHOP, pC.B));
-        CB[0][5].setText( gameB[0][5].getImgID());
+        CB[0][5].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[0][5].getImgID())) );
         gameB[7][2] = (new Piece (pT.BISHOP, pC.W));
-        CB[7][2].setText( gameB[7][2].getImgID());
+        CB[7][2].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[7][2].getImgID())) );
         gameB[7][5] = (new Piece (pT.BISHOP, pC.W));
-        CB[7][5].setText( gameB[7][5].getImgID());
+        CB[7][5].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[7][5].getImgID())) );
 
         //Queens
         gameB[0][3] = (new Piece (pT.QUEEN, pC.B ));
-        CB[0][3].setText( gameB[0][3].getImgID());
+        CB[0][3].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[0][3].getImgID())) );
         gameB[7][3] = (new Piece (pT.QUEEN, pC.W));
-        CB[7][3].setText( gameB[7][3].getImgID());
+        CB[7][3].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[7][3].getImgID())) );
 
         //Kings
         gameB[0][4] = (new Piece (pT.KING, pC.B));
-        CB[0][4].setText( gameB[0][4].getImgID());
+        CB[0][4].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[0][4].getImgID())) );
         bCheck = false;
         KBX = 0;
         KBY = 4;
         gameB[7][4] = (new Piece (pT.KING, pC.W));
-        CB[7][4].setText( gameB[7][4].getImgID());
+        CB[7][4].setIcon( new javax.swing.ImageIcon(getClass().getResource(gameB[7][4].getImgID())) );
         wCheck = false;
         KWX = 7;
         KWY = 4;
