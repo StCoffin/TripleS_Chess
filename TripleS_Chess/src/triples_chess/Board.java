@@ -38,21 +38,21 @@ public class Board extends JFrame
     {
         int Row,Col;
    	 
-   	 Toolkit MyKit 	= Toolkit.getDefaultToolkit	();
-   	 Dimension XY 	= MyKit.getScreenSize		();
+   	Toolkit MyKit 	= Toolkit.getDefaultToolkit	();
+   	Dimension XY 	= MyKit.getScreenSize		();
    	  
-   	 Row = XY.width;
-   	 Col = XY.height;
+   	Row = XY.width;
+   	Col = XY.height;
    	 
-   	 setSize	(25*Row/80	, Col/2		);   
+   	setSize	(800	, 800	);   //(25*Row/80	, Col/2		)
          
-   	 setLocation    (13*Row/32	, Col/4		);
+   	setLocation    (13*Row/32	, Col/4		);
    	 
-   	 setTitle						("Chess by Team Triple S" );
+   	setTitle						("Chess by Team Triple S" );
    	 
-   	 boardPanel PanelGame		= new boardPanel ();
-   	 Container ContentPanel01 	= getContentPane();
-   	 ContentPanel01.add(PanelGame);
+   	boardPanel PanelGame		= new boardPanel ();
+   	Container ContentPanel01 	= getContentPane();
+   	ContentPanel01.add(PanelGame);
         
         
         initBoard(); // Populate 
