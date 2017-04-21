@@ -66,8 +66,6 @@ public class Board extends JFrame
         {
             setLayout(new BorderLayout());
 
-            Font BIG = new Font("TimesRoman", Font.BOLD, 30);
-
             PanelOne.setLayout(new GridLayout(8, 8, 5, 5));
             
             //Build out 2d Grid Array of Control Buttons
@@ -85,7 +83,6 @@ public class Board extends JFrame
                     {
                         CB[col][row].setBackground(Color.white);
                     }
-                    CB[col][row].setFont(BIG);
                     CB[col][row].putClientProperty("Col", col);
                     CB[col][row].putClientProperty("Row", row);
                     PanelOne.add(CB[col][row]);
@@ -399,7 +396,6 @@ public class Board extends JFrame
 
     } // End initBoard()
  
-
     
     // Method to Calculate If in check
     public boolean isCheck(int x, int y)
@@ -591,8 +587,5 @@ public class Board extends JFrame
         return arthur;
     }// End isCheck() method;
     
-    
-    
-    ImageIcon PawnW = new ImageIcon("PW60.png");
     
 }
