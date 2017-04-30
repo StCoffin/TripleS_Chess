@@ -17,19 +17,18 @@ import javax.swing.*;
 <br><b> <font color="white">PARAMETERS</font< </b>  : None <br>
 <HR>
 <br><b> <font color="white">VARIABLES</font> </b>  : <br>
- *      <blockquote><i>a. gameB - </i></blockquote>
- *      <blockquote><i>b. holdPiece - </i></blockquote>
- *      <blockquote><i>c. holdPiece - </i></blockquote>
- *      <blockquote><i>d. PanelOne - </i></blockquote>
- *      <blockquote><i>e. CB[][] - </i></blockquote>
- *      <blockquote><i>f. mCount - </i></blockquote>
- *      <blockquote><i>g. x1, y1, x2, y2, xHold, yHold - </i></blockquote>
- *      <blockquote><i>h. validMoves[][] - </i></blockquote>
- *      <blockquote><i>i. KBX, KBY - </i></blockquote>
- *      <blockquote><i>j. KWX, KWY - </i></blockquote>
- *      <blockquote><i>k. wCheck - </i></blockquote>
- *      <blockquote><i>l. bCheck - </i></blockquote>
- *      <blockquote><i>m. moveCount - </i></blockquote>
+ *      <blockquote><i>a. gameB - 2D Array for game pieces location</i></blockquote>
+ *      <blockquote><i>b. holdPiece - Type piece to hold value of piece being captured</i></blockquote>
+ *      <blockquote><i>d. PanelOne - Board panel for 8x8 array of JButtons</i></blockquote>
+ *      <blockquote><i>e. CB[][] - Actual 2D array of JButtons for Control</i></blockquote>
+ *      <blockquote><i>f. mCount - Counter for move</i></blockquote>
+ *      <blockquote><i>g. x1, y1, x2, y2, xHold, yHold - Variables for move requirements</i></blockquote>
+ *      <blockquote><i>h. validMoves[][] - Generated 2D array for potential valid moves</i></blockquote>
+ *      <blockquote><i>i. KBX, KBY - Current X / Y location for Black King</i></blockquote>
+ *      <blockquote><i>j. KWX, KWY - Current X / Y location for White King</i></blockquote>
+ *      <blockquote><i>k. wCheck - Boolean variable for White Check</i></blockquote>
+ *      <blockquote><i>l. bCheck - Boolean variable for Black Check</i></blockquote>
+ *      <blockquote><i>m. moveCount - Count of moves</i></blockquote>
  * <HR>
  * <br><b>  <font color="white">PURPOSE</font></b>      : <blockquote<<pre>  
 Set initial window size;
@@ -126,7 +125,7 @@ public class Board extends JFrame
      * <br><b> <font color="white">PARAMETERS</font> </b>  : None <br>
      * <HR>
      * <br><b> <font color="white">VARIABLES</font> </b>  : <br>
-     *      <blockquote><i>a. ButtonPressed - </i></blockquote>
+     *      <blockquote><i>a. ButtonPressed - Event reader when a square is clicked</i></blockquote>
      * <HR>
      * <br><b><font color="white">PURPOSE</font></b>      : <blockquote>
      * <pre>
@@ -223,10 +222,10 @@ public class Board extends JFrame
      *  <b><font color="white">PROCEDURE</font> </b>   : movePiece <br>
      * <HR>
      * <br><b><font color="white">PARAMETERS</font> </b>  : <br>
-            <blockquote><i>a. xa - </i></blockquote>
-     *      <blockquote><i>a. xb - </i></blockquote>
-     *      <blockquote><i>a. ya - </i></blockquote>
-     *      <blockquote><i>a. xb - </i></blockquote>
+            <blockquote><i>a. xa - Piece being moved</i></blockquote>
+     *      <blockquote><i>a. ya - Piece being moved</i></blockquote>
+     *      <blockquote><i>a. xb - Piece being captured</i></blockquote>
+     *      <blockquote><i>a. yb - Piece being captured</i></blockquote>
      * <HR>
      * <br><b><font color="white">VARIABLES</font> </b>  : <br>
      *      <blockquote><i>a. row - </i></blockquote>
@@ -325,9 +324,9 @@ Else(If piece not a King )
      *      <blockquote><i>a. posit - Takes the 2dArray of valid moves</i></blockquote>
      * <HR>
      * <br><b><font color="white">VARIABLES</font></b>  : <br>
-     *      <blockquote><i>a. col - </i></blockquote>
-     *      <blockquote><i>a. row - </i></blockquote>
-     *      <blockquote><i>a. k - </i></blockquote>
+     *      <blockquote><i>a. col - X value of the potential square</i></blockquote>
+     *      <blockquote><i>a. row - Y value of the potential square</i></blockquote>
+     *      <blockquote><i>a. k - For loop iterator counter</i></blockquote>
      * <HR>
      * <br><b><font color="white">PURPOSE</font></b>      : <blockquote>
      * <pre>
@@ -361,9 +360,9 @@ Set the background of the locations from the 2dArray to green showing potential 
      *      <blockquote><i>a. posit - Takes the 2dArray of valid moves</i></blockquote>
      * <HR>
      * <br><b><font color="white">VARIABLES</font></b>  : <br>
-     *      <blockquote><i>a. col - </i></blockquote>
-     *      <blockquote><i>b. row - </i></blockquote>
-     *      <blockquote><i>c. k - </i></blockquote>
+     *      <blockquote><i>a. col - X value of the potential square</i></blockquote>
+     *      <blockquote><i>a. row - Y value of the potential square</i></blockquote>
+     *      <blockquote><i>a. k - For loop iterator counter</i></blockquote>
      * <HR>
      * <br><b><font color="white">PURPOSE</font></b>      : <blockquote>
      * <pre>
@@ -541,11 +540,11 @@ Else If (black or white are not in check )
      *  <b><font color="white">PROCEDURE</font></b>   : isCheck <br>
      * <HR>
      * <br><b><font color="white">PARAMETERS</font></b>  : <br>
-     *      <blockquote><i>a. x - </i></blockquote>
-     *      <blockquote><i>b. y - </i></blockquote>
+     *      <blockquote><i>a. x - X location for the King being looked at for check</i></blockquote>
+     *      <blockquote><i>b. y - Y location for the King being looked at for check</i></blockquote>
      * <HR>
      * <br><b><font color="white">VARIABLES</font></b>  : <br>
-     *      <blockquote><i>a. arthur - </i></blockquote>
+     *      <blockquote><i>a. arthur - Boolean value for check status</i></blockquote>
      * <HR>
      * <br><b><font color="white">PURPOSE</font></b>      : <blockquote>
      * <pre>Check to see if White and black king are in check:
@@ -743,6 +742,5 @@ Else If (black or white are not in check )
 
         return arthur;
     }// End isCheck() method;
-    
-    
+        
 }

@@ -22,11 +22,11 @@ import javax.swing.*;
 * <br><b> <font color="white">PARAMETERS </b> </font> : None <br>
 * <HR>
 * <br><b> <font color="white">VARIABLES </b> </font> : <br>
-*      <blockquote><i>a. pImg - </i></blockquote>
-*      <blockquote><i>b. type - </i></blockquote>
-*      <blockquote><i>c. colr - </i></blockquote>
-*      <blockquote><i>c. hasmoved - </i></blockquote>
-*      <blockquote><i>c. moves[][] - </i></blockquote>
+*      <blockquote><i>a. pImg - String name for image file location</i></blockquote>
+*      <blockquote><i>b. type - Type of piece</i></blockquote>
+*      <blockquote><i>c. colr - Color of piece</i></blockquote>
+*      <blockquote><i>c. hasmoved - Integer counter for no. of moves </i></blockquote>
+*      <blockquote><i>c. moves[][] - Array output of valid moves</i></blockquote>
 * <HR>
 * <br><b> <font color="white"> PURPOSE</b> </font>     :
 * <pre>
@@ -130,9 +130,9 @@ public class Piece
 * <b> <font color="white">PROCEDURE </b> </font>  : vMove <br>
 * <HR>
 * <br><b> <font color="white">PARAMETERS </b> </font> :  <br>
-*           <blockquote><i>a. x - </i></blockquote>
-*           <blockquote><i>a. y - </i></blockquote>
-*           <blockquote><i>a. B - </i></blockquote> 
+*           <blockquote><i>a. x - Actual piece location for valid move</i></blockquote>
+*           <blockquote><i>a. y - Actual piece location for valid move</i></blockquote>
+*           <blockquote><i>a. B - Board Array of pieces currently</i></blockquote> 
 * <HR>
 * <br><b> <font color="white">VARIABLES </b> </font> : None <br>
 * <HR>
@@ -191,9 +191,9 @@ public class Piece
 * <b> <font color="white">PROCEDURE </b> </font>  : PawnMoves <br>
 * <HR>
 * <br><b> <font color="white">PARAMETERS </b> </font> :  <br>
-*               <blockquote><i>a. x - </i></blockquote> 
-*               <blockquote><i>a. y - </i></blockquote>
-*               <blockquote><i>a. B - </i></blockquote> 
+*           <blockquote><i>a. x - Actual pawn location for valid move</i></blockquote>
+*           <blockquote><i>a. y - Actual pawn location for valid move</i></blockquote>
+*           <blockquote><i>a. B - Board Array of pieces currently</i></blockquote> 
 * <HR>
 * <br><b> <font color="white">VARIABLES </b> </font> : <br>
 *      <blockquote><i>a. col - </i></blockquote>
@@ -295,9 +295,9 @@ public class Piece
 * <b> <font color="white">PROCEDURE </b> </font>  : KnightMoves <br>
 * <HR>
 * <br><b> <font color="white">PARAMETERS </b> </font> :  <br>
-*               <blockquote><i>a. x - </i></blockquote> 
-*               <blockquote><i>a. y - </i></blockquote>
-*               <blockquote><i>a. B - </i></blockquote> 
+*           <blockquote><i>a. x - Actual Knight location for valid move</i></blockquote>
+*           <blockquote><i>a. y - Actual Knight location for valid move</i></blockquote>
+*           <blockquote><i>a. B - Board Array of pieces currently</i></blockquote> 
 * <HR>
 * <br><b> <font color="white">VARIABLES </b> </font> : <br>
 *      <blockquote><i>a. col - </i></blockquote>
@@ -393,9 +393,9 @@ public class Piece
 * <b> <font color="white">PROCEDURE </b> </font>  : RookMoves <br>
 * <HR>
 * <br><b> <font color="white">PARAMETERS </b> </font> :  <br>
-*               <blockquote><i>a. x - </i></blockquote> 
-*               <blockquote><i>a. y - </i></blockquote>
-*               <blockquote><i>a. B - </i></blockquote> 
+*           <blockquote><i>a. x - Actual Rook location for valid move</i></blockquote>
+*           <blockquote><i>a. y - Actual Rook location for valid move</i></blockquote>
+*           <blockquote><i>a. B - Board Array of pieces currently</i></blockquote> 
 * <HR>
 * <br><b> <font color="white">VARIABLES </b> </font> : <br>
 *      <blockquote><i>a. col - </i></blockquote>
@@ -518,9 +518,9 @@ public class Piece
 * <b> <font color="white">PROCEDURE </b> </font>  : BishopMoves <br>
 * <HR>
 * <br><b> <font color="white">PARAMETERS </b> </font> :  <br>
-*               <blockquote><i>a. x - </i></blockquote> 
-*               <blockquote><i>a. y - </i></blockquote>
-*               <blockquote><i>a. B - </i></blockquote> 
+*           <blockquote><i>a. x - Actual Bishop location for valid move</i></blockquote>
+*           <blockquote><i>a. y - Actual Bishop location for valid move</i></blockquote>
+*           <blockquote><i>a. B - Board Array of pieces currently</i></blockquote> 
 * <HR>
 * <br><b> <font color="white">VARIABLES </b> </font> : <br>
 *      <blockquote><i>a. col - </i></blockquote>
@@ -646,9 +646,9 @@ public class Piece
 * <b> <font color="white">PROCEDURE </b> </font>  : QueenMoves <br>
 * <HR>
 * <br><b> <font color="white">PARAMETERS </b> </font> :  <br>
-*               <blockquote><i>a. x - </i></blockquote> 
-*               <blockquote><i>a. y - </i></blockquote>
-*               <blockquote><i>a. B - </i></blockquote> 
+*           <blockquote><i>a. x - Actual Queen location for valid move</i></blockquote>
+*           <blockquote><i>a. y - Actual Queen location for valid move</i></blockquote>
+*           <blockquote><i>a. B - Board Array of pieces currently</i></blockquote> 
 * <HR>
 * <br><b> <font color="white">VARIABLES </b> </font> : <br>
 *      <blockquote><i>a. col - </i></blockquote>
@@ -859,9 +859,9 @@ public class Piece
 * <b> <font color="white">PROCEDURE </b> </font>  : KingMoves <br>
 * <HR>
 * <br><b> <font color="white">PARAMETERS </b> </font> :  <br>
-*               <blockquote><i>a. x - </i></blockquote> 
-*               <blockquote><i>a. y - </i></blockquote>
-*               <blockquote><i>a. B - </i></blockquote> 
+*           <blockquote><i>a. x - Actual King location for valid move</i></blockquote>
+*           <blockquote><i>a. y - Actual King location for valid move</i></blockquote>
+*           <blockquote><i>a. B - Board Array of pieces currently</i></blockquote> 
 * <HR>
 * <br><b> <font color="white">VARIABLES </b> </font> : <br>
 *      <blockquote><i>a. col - </i></blockquote>
@@ -1042,14 +1042,14 @@ public class Piece
 	}
 
 /**
-* <b> <font color="white">PROCEDURE </b> </font>  : isMoved <br>
+* <b><font color="white">PROCEDURE</font></b>   : isMoved <br>
 * <HR>
-* <br><b> <font color="white">PARAMETERS </b> </font> :  None <br>
+* <br><b><font color="white">PARAMETERS</font></b>  :  None <br>
 * <HR>
-* <br><b> <font color="white">VARIABLES </b> </font> : None <br>
+* <br><b><font color="white">VARIABLES</font></b> : None <br>
 
 * <HR>
-* <br><b> <font color="white"> PURPOSE</b> </font>     :
+* <br><b><font color="white"> PURPOSE</font></b>     :
 * <pre>Adds one to hasMoved for the piece when moved</pre>
 */         
 	public void isMoved()
