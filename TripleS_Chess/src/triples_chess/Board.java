@@ -1,7 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *  <b>PROGRAM</b>     : Triple S Chess<br>
+ *  <b>AUTHORS</b>     : Stephen C., Sean B., Sid C.<br>
+ *  <b>PURPOSE</b>     : To demonstrate full development process (Concept to Release)<br>
+ *  <b>COURSE</b>      : CSC 478 [B] (Software Engineering Capstone)<br>
+ *  <b>DATE</b>        : 01.23.2017 - 05.12.2017<br>
  */
 package triples_chess;
 
@@ -10,11 +12,31 @@ import java.awt.event.*;
 import javax.swing.*;
 
 /**
- *
- * @author Stcof
- * Called By TripleS_Chess
+<b> <font color="white">CLASS</font> </b>   : Board <br>
+<HR>
+<br><b> <font color="white">PARAMETERS</font< </b>  : None <br>
+<HR>
+<br><b> <font color="white">VARIABLES</font> </b>  : <br>
+ *      <blockquote><i>a. gameB - </i></blockquote>
+ *      <blockquote><i>b. holdPiece - </i></blockquote>
+ *      <blockquote><i>c. holdPiece - </i></blockquote>
+ *      <blockquote><i>d. PanelOne - </i></blockquote>
+ *      <blockquote><i>e. CB[][] - </i></blockquote>
+ *      <blockquote><i>f. mCount - </i></blockquote>
+ *      <blockquote><i>g. x1, y1, x2, y2, xHold, yHold - </i></blockquote>
+ *      <blockquote><i>h. validMoves[][] - </i></blockquote>
+ *      <blockquote><i>i. KBX, KBY - </i></blockquote>
+ *      <blockquote><i>j. KWX, KWY - </i></blockquote>
+ *      <blockquote><i>k. wCheck - </i></blockquote>
+ *      <blockquote><i>l. bCheck - </i></blockquote>
+ *      <blockquote><i>m. moveCount - </i></blockquote>
+ * <HR>
+ * <br><b>  <font color="white">PURPOSE</font></b>      : <blockquote<<pre>  
+Set initial window size;
+Create new boardpanel() class;
+Load boardpanel into the frame container;
+Initialize the board;</pre></blockquote>
  */
-
 public class Board extends JFrame
 {
     // Variables and 'Item' initialization
@@ -97,7 +119,38 @@ public class Board extends JFrame
 
         }
     }
-    
+
+    /**
+     *  <b> <font color="white">PROCEDURE</font> </b>   : ClickThem <br>
+     * <HR>
+     * <br><b> <font color="white">PARAMETERS</font> </b>  : None <br>
+     * <HR>
+     * <br><b> <font color="white">VARIABLES</font> </b>  : <br>
+     *      <blockquote><i>a. ButtonPressed - </i></blockquote>
+     * <HR>
+     * <br><b><font color="white">PURPOSE</font></b>      : <blockquote>
+     * <pre>
+     Read the button clicked and get the x and y values for its location;
+     If (its the beginning of a new move )
+        Assign the current position to position one(the position looking to move);
+     If (the position is actually a piece and not a blank square)
+        calculate potential valid moves and 'paint' them;
+     Else If ( not the first of a new move, and not an empty square )
+        Assign current position to position two ( position to be moved to);
+
+     If ( the color of position one and position two are the same )
+        Assign position two to position one, recalculate potential moves and 'paint' them;
+     Else
+        Unpaint the potential moves;
+        Move the piece;
+        Check to see if white or black is in check from the move and paint the check status;
+        Set move back to 0 to initialize a new move;
+     Else (if the piece is an empty square)
+        Unpaint the potential moves;
+        Move the piece;
+        Check to see if white or black is in check from the move and paint the check status;
+        Set move back to 0 to initialize a new move;</pre></blockquote>
+*/    
     private class ClickThem implements ActionListener 
     {
 
@@ -166,6 +219,35 @@ public class Board extends JFrame
         }
     } // End Clickthem Actionlistener
     
+    /**
+     *  <b><font color="white">PROCEDURE</font> </b>   : movePiece <br>
+     * <HR>
+     * <br><b><font color="white">PARAMETERS</font> </b>  : <br>
+            <blockquote><i>a. xa - </i></blockquote>
+     *      <blockquote><i>a. xb - </i></blockquote>
+     *      <blockquote><i>a. ya - </i></blockquote>
+     *      <blockquote><i>a. xb - </i></blockquote>
+     * <HR>
+     * <br><b><font color="white">VARIABLES</font> </b>  : <br>
+     *      <blockquote><i>a. row - </i></blockquote>
+     * <HR>
+     * <br><b><font color="white">PURPOSE</font></b>      : <blockquote>
+     * <pre>
+(Takes x and y coordinates for first position(a) and second position(b))
+Check to make sure that proposed move is a valid move
+If (the piece being moved is a King check color and change the corresponding colors position location);
+    Hold the current value of location two;
+    Move piece from location one to location two;
+    Load the image of the piece into the new location;
+    Set the value of location one to null;
+    Remove the image from the old location;
+Else(If piece not a King )
+    Hold the current value of location two;
+    Move piece from location one to location two;
+    Load the image of the piece into the new location;
+    Set the value of location one to null;
+    Remove the image from the old location;</pre></blockquote>
+*/       
     public void movePiece(int xa, int ya, int xb, int yb) 
     {
         int row = 0;
@@ -236,7 +318,21 @@ public class Board extends JFrame
 
     }// End movePiece()
     
-    // method to paint potential valid moves that a user can select
+    /**
+     *  <b><font color="white">PROCEDURE</font></b>   : paintPotMoves <br>
+     * <HR>
+     * <br><b><font color="white">PARAMETERS</font></b>  : <br>
+     *      <blockquote><i>a. posit - Takes the 2dArray of valid moves</i></blockquote>
+     * <HR>
+     * <br><b><font color="white">VARIABLES</font></b>  : <br>
+     *      <blockquote><i>a. col - </i></blockquote>
+     *      <blockquote><i>a. row - </i></blockquote>
+     *      <blockquote><i>a. k - </i></blockquote>
+     * <HR>
+     * <br><b><font color="white">PURPOSE</font></b>      : <blockquote>
+     * <pre>
+Set the background of the locations from the 2dArray to green showing potential moves;</pre></blockquote>
+*/    
     public void paintPotMoves(int[][] posit)
     {
     	int col = 0;
@@ -258,7 +354,21 @@ public class Board extends JFrame
     	}
     } // End paintPotMoves()
     
-    // Method to unpaint potential moves a user can make
+    /**
+     *  <b><font color="white">PROCEDURE</font></b>   : unpaintPotMoves <br>
+     * <HR>
+     * <br><b><font color="white">PARAMETERS</font></b>  : <br>
+     *      <blockquote><i>a. posit - Takes the 2dArray of valid moves</i></blockquote>
+     * <HR>
+     * <br><b><font color="white">VARIABLES</font></b>  : <br>
+     *      <blockquote><i>a. col - </i></blockquote>
+     *      <blockquote><i>b. row - </i></blockquote>
+     *      <blockquote><i>c. k - </i></blockquote>
+     * <HR>
+     * <br><b><font color="white">PURPOSE</font></b>      : <blockquote>
+     * <pre>
+Set the background of the locations from the 2dArray to gray or white depending on its relative location;</pre></blockquote>
+*/  
     public void unpaintPotMoves(int[][] posit) {
         int col = 0;
         int row = 0;
@@ -286,7 +396,21 @@ public class Board extends JFrame
         }
     } // End unpaintPotMoves()
     
-    // Method to Paint the current status of Check: RED == In-check, standard BLUE == not-in-check
+    /**
+     *  <b><font color="white">PROCEDURE</font></b>   : paintCheck <br>
+     * <HR>
+     * <br><b><font color="white">PARAMETERS</font></b>  : None <br>
+     *      
+     * <HR>
+     * <br><b><font color="white">VARIABLES</font></b>  : None <br>
+     * <HR>
+     * <br><b><font color="white">PURPOSE</font></b>      : <blockquote>
+     * <pre>
+If (black or white are in check )
+    Change the respective background to red marking in check;
+Else If (black or white are not in check )
+    Change the respective background back to white or gray;</pre></blockquote>
+*/
     public void paintCheck()
     {
         if (wCheck == true)
@@ -321,7 +445,23 @@ public class Board extends JFrame
         }
     } //End paintCheck()
     
-    // Initialize gameB Board and print out basic setup, ~ = null spaces
+    /**
+     *  <b><font color="white">PROCEDURE</font></b>   : initBoard <br>
+     * <HR>
+     * <br><b><font color="white">PARAMETERS</font></b>  : None <br>
+     * <HR>
+     * <br><b><font color="white">VARIABLES</font></b>  : None <br>
+     * <HR>
+     * <br><b><font color="white">PURPOSE</font></b>      : <blockquote>
+     * <pre><ul>
+<li>Intialize black and white Pawn pieces into the piece 2dArray and set Pawn image to respective location;</li>
+<li>Initialize black and white Rook pieces into the piece 2dArray and set Rook image to respective location;</li>
+<li>Initialize black and white Knight pieces into the piece 2dArray and set Knight image to respective location;</li>
+<li>Initialize black and white Bishop pieces into the piece 2dArray and set Bishop image to respective location;</li>
+<li>Initialize black and white Queen pieces into the piece 2dArray and set Queen image to respective location;</li>
+<li>Initialize black and white King pieces into the piece 2dArray and set King image to respective location;</li>
+</ul></pre></blockquote>
+*/
     public void initBoard() 
     {
         //Pawns
@@ -397,7 +537,24 @@ public class Board extends JFrame
     } // End initBoard()
  
     
-    // Method to Calculate If in check
+    /**
+     *  <b><font color="white">PROCEDURE</font></b>   : isCheck <br>
+     * <HR>
+     * <br><b><font color="white">PARAMETERS</font></b>  : <br>
+     *      <blockquote><i>a. x - </i></blockquote>
+     *      <blockquote><i>b. y - </i></blockquote>
+     * <HR>
+     * <br><b><font color="white">VARIABLES</font></b>  : <br>
+     *      <blockquote><i>a. arthur - </i></blockquote>
+     * <HR>
+     * <br><b><font color="white">PURPOSE</font></b>      : <blockquote>
+     * <pre>Check to see if White and black king are in check:
+<ul><li>By Pawn Diagonally;</li>
+<li>By potential Knight locations;</li>
+<li>By Horizontally and vertically by Queen or Rook;</li>
+<li>By Diagonally in all directions by Bishop or Queen;</li>
+<li>Return true if in check by any of these methods;</li></pre></blockquote>
+*/
     public boolean isCheck(int x, int y)
     {
         boolean arthur  = false       ; // Couldn't help myself..                
