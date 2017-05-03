@@ -6,7 +6,10 @@
  *  <b>DATE</b>        : 01.23.2017 - 05.12.2017<br>
  */
 package triples_chess;
-
+/**
+ * 
+ * @author TripleS
+ */
 public enum pC 
 {
     W, B

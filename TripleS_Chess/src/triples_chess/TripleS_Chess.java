@@ -7,13 +7,17 @@
  */
 package triples_chess;
 
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-
+/**
+ * 
+ * @author TripleS
+ */
 public class TripleS_Chess 
 {
-
+    /**
+     * 
+     * @param args 
+     */
     public static void main(String[] args) 
     {
         System.out.println("Initializing new chess board!");

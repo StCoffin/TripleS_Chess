@@ -12,11 +12,11 @@ import java.awt.event.*;
 import javax.swing.*;
 
 /**
-<b> <font color="white">CLASS</font> </b>   : Board <br>
+<h3 style="color:white;">CLASS: Board</h3>
 <HR>
-<br><b> <font color="white">PARAMETERS</font< </b>  : None <br>
+<h3 style="color:white;">PARAMETERS: None</h3>
 <HR>
-<br><b> <font color="white">VARIABLES</font> </b>  : <br>
+<h3 style="color:white;">VARIABLES:</h3>
  *      <blockquote><i>a. gameB - 2D Array for game pieces location</i></blockquote>
  *      <blockquote><i>b. holdPiece - Type piece to hold value of piece being captured</i></blockquote>
  *      <blockquote><i>d. PanelOne - Board panel for 8x8 array of JButtons</i></blockquote>
@@ -30,16 +30,18 @@ import javax.swing.*;
  *      <blockquote><i>l. bCheck - Boolean variable for Black Check</i></blockquote>
  *      <blockquote><i>m. moveCount - Count of moves</i></blockquote>
  * <HR>
- * <br><b>  <font color="white">PURPOSE</font></b>      : <blockquote<<pre>  
+ * <h3 style="color:white;">PURPOSE:</h3><blockquote><pre>  
 Set initial window size;
 Create new boardpanel() class;
 Load boardpanel into the frame container;
 Initialize the board;</pre></blockquote>
- */
+*/
 public class Board extends JFrame
 {
     // Variables and 'Item' initialization
-
+/**
+ * 
+ */
     public Piece[][] gameB = new Piece[8][8];
     Piece holdPiece = new Piece();
     JPanel PanelOne  = new JPanel();
@@ -54,7 +56,13 @@ public class Board extends JFrame
     int moveCount = 0;
     
     
-    
+/**
+<h3 style="color:white;">PROCEDURE: Board</h3>
+<HR>
+<h3 style="color:white;">PARAMETERS: None</h3>
+<HR>
+<h3 style="color:white;">VARIABLES: None</h3>
+*/
     public Board()
     {
         int Row,Col;
@@ -120,14 +128,14 @@ public class Board extends JFrame
     }
 
     /**
-     *  <b> <font color="white">PROCEDURE</font> </b>   : ClickThem <br>
+     * <h3 style="color:white;">PROCEDURE: ClickThem </h3>
      * <HR>
-     * <br><b> <font color="white">PARAMETERS</font> </b>  : None <br>
+     * <h3 style="color:white;">PARAMETERS: None </h3>
      * <HR>
-     * <br><b> <font color="white">VARIABLES</font> </b>  : <br>
+     * <h3 style="color:white;">VARIABLES: </h3>
      *      <blockquote><i>a. ButtonPressed - Event reader when a square is clicked</i></blockquote>
      * <HR>
-     * <br><b><font color="white">PURPOSE</font></b>      : <blockquote>
+     * <h3 style="color:white;">PURPOSE: </h3><blockquote>
      * <pre>
      Read the button clicked and get the x and y values for its location;
      If (its the beginning of a new move )
@@ -219,18 +227,18 @@ public class Board extends JFrame
     } // End Clickthem Actionlistener
     
     /**
-     *  <b><font color="white">PROCEDURE</font> </b>   : movePiece <br>
+     * <h3 style="color:white;">PROCEDURE: movePiece</h3>
      * <HR>
-     * <br><b><font color="white">PARAMETERS</font> </b>  : <br>
-            <blockquote><i>a. xa - Piece being moved</i></blockquote>
-     *      <blockquote><i>a. ya - Piece being moved</i></blockquote>
-     *      <blockquote><i>a. xb - Piece being captured</i></blockquote>
-     *      <blockquote><i>a. yb - Piece being captured</i></blockquote>
+     * <h3 style="color:white;">PARAMETERS:</h3>
+            @param xa - Piece being moved
+     *      @param ya - Piece being moved
+     *      @param xb - Piece being captured
+     *      @param yb - Piece being captured
      * <HR>
-     * <br><b><font color="white">VARIABLES</font> </b>  : <br>
+     * <h3 style="color:white;">VARIABLES:</h3>
      *      <blockquote><i>a. row - </i></blockquote>
      * <HR>
-     * <br><b><font color="white">PURPOSE</font></b>      : <blockquote>
+     * <h3 style="color:white;">PURPOSE: </h3><blockquote>
      * <pre>
 (Takes x and y coordinates for first position(a) and second position(b))
 Check to make sure that proposed move is a valid move
@@ -246,6 +254,7 @@ Else(If piece not a King )
     Load the image of the piece into the new location;
     Set the value of location one to null;
     Remove the image from the old location;</pre></blockquote>
+* 
 */       
     public void movePiece(int xa, int ya, int xb, int yb) 
     {
@@ -318,17 +327,17 @@ Else(If piece not a King )
     }// End movePiece()
     
     /**
-     *  <b><font color="white">PROCEDURE</font></b>   : paintPotMoves <br>
+     * <h3 style="color:white;">PROCEDURE: paintPotMoves</h3>
      * <HR>
-     * <br><b><font color="white">PARAMETERS</font></b>  : <br>
-     *      <blockquote><i>a. posit - Takes the 2dArray of valid moves</i></blockquote>
+     * <h3 style="color:white;">PARAMETERS:</h3>
+     *      @param posit - Takes the 2dArray of valid moves
      * <HR>
-     * <br><b><font color="white">VARIABLES</font></b>  : <br>
+     * <h3 style="color:white;">VARIABLES:</h3>
      *      <blockquote><i>a. col - X value of the potential square</i></blockquote>
      *      <blockquote><i>a. row - Y value of the potential square</i></blockquote>
      *      <blockquote><i>a. k - For loop iterator counter</i></blockquote>
      * <HR>
-     * <br><b><font color="white">PURPOSE</font></b>      : <blockquote>
+     * <h3 style="color:white;">PURPOSE:</h3><blockquote>
      * <pre>
 Set the background of the locations from the 2dArray to green showing potential moves;</pre></blockquote>
 */    
@@ -354,17 +363,17 @@ Set the background of the locations from the 2dArray to green showing potential 
     } // End paintPotMoves()
     
     /**
-     *  <b><font color="white">PROCEDURE</font></b>   : unpaintPotMoves <br>
+     * <h3 style="color:white;">PROCEDURE: unpaintPotMoves</h3>
      * <HR>
-     * <br><b><font color="white">PARAMETERS</font></b>  : <br>
-     *      <blockquote><i>a. posit - Takes the 2dArray of valid moves</i></blockquote>
+     * <h3 style="color:white;">PARAMETERS: </h3>
+     *      @param posit - Takes the 2dArray of valid moves
      * <HR>
-     * <br><b><font color="white">VARIABLES</font></b>  : <br>
+     * <h3 style="color:white;">VARIABLES:</h3>
      *      <blockquote><i>a. col - X value of the potential square</i></blockquote>
      *      <blockquote><i>a. row - Y value of the potential square</i></blockquote>
      *      <blockquote><i>a. k - For loop iterator counter</i></blockquote>
      * <HR>
-     * <br><b><font color="white">PURPOSE</font></b>      : <blockquote>
+     * <h3 style="color:white;">PURPOSE:</h3><blockquote>
      * <pre>
 Set the background of the locations from the 2dArray to gray or white depending on its relative location;</pre></blockquote>
 */  
@@ -396,14 +405,13 @@ Set the background of the locations from the 2dArray to gray or white depending 
     } // End unpaintPotMoves()
     
     /**
-     *  <b><font color="white">PROCEDURE</font></b>   : paintCheck <br>
+     * <h3 style="color:white;">PROCEDURE: paintCheck</h3>
      * <HR>
-     * <br><b><font color="white">PARAMETERS</font></b>  : None <br>
-     *      
+     * <h3 style="color:white;">PARAMETERS: None</h3>
      * <HR>
-     * <br><b><font color="white">VARIABLES</font></b>  : None <br>
+     * <h3 style="color:white;">VARIABLES: None</h3>
      * <HR>
-     * <br><b><font color="white">PURPOSE</font></b>      : <blockquote>
+     * <h3 style="color:white;">PURPOSE:</h3><blockquote>
      * <pre>
 If (black or white are in check )
     Change the respective background to red marking in check;
@@ -445,21 +453,21 @@ Else If (black or white are not in check )
     } //End paintCheck()
     
     /**
-     *  <b><font color="white">PROCEDURE</font></b>   : initBoard <br>
+     * <h3 style="color:white;">PROCEDURE: initBoard</h3>
      * <HR>
-     * <br><b><font color="white">PARAMETERS</font></b>  : None <br>
+     * <h3 style="color:white;">PARAMETERS: None</h3>
      * <HR>
-     * <br><b><font color="white">VARIABLES</font></b>  : None <br>
+     * <h3 style="color:white;">VARIABLES: None</h3>
      * <HR>
-     * <br><b><font color="white">PURPOSE</font></b>      : <blockquote>
-     * <pre><ul>
-<li>Intialize black and white Pawn pieces into the piece 2dArray and set Pawn image to respective location;</li>
-<li>Initialize black and white Rook pieces into the piece 2dArray and set Rook image to respective location;</li>
-<li>Initialize black and white Knight pieces into the piece 2dArray and set Knight image to respective location;</li>
-<li>Initialize black and white Bishop pieces into the piece 2dArray and set Bishop image to respective location;</li>
-<li>Initialize black and white Queen pieces into the piece 2dArray and set Queen image to respective location;</li>
-<li>Initialize black and white King pieces into the piece 2dArray and set King image to respective location;</li>
-</ul></pre></blockquote>
+     * <h3 style="color:white;">PURPOSE:</h3><blockquote>
+     * <pre>
+Intialize black and white Pawn pieces into the piece 2dArray and set Pawn image to respective location;
+Initialize black and white Rook pieces into the piece 2dArray and set Rook image to respective location;
+Initialize black and white Knight pieces into the piece 2dArray and set Knight image to respective location;
+Initialize black and white Bishop pieces into the piece 2dArray and set Bishop image to respective location;
+Initialize black and white Queen pieces into the piece 2dArray and set Queen image to respective location;
+Initialize black and white King pieces into the piece 2dArray and set King image to respective location;
+</pre></blockquote>
 */
     public void initBoard() 
     {
@@ -537,22 +545,25 @@ Else If (black or white are not in check )
  
     
     /**
-     *  <b><font color="white">PROCEDURE</font></b>   : isCheck <br>
+     * <h3 style="color:white;">PROCEDURE: isCheck</h3>
      * <HR>
-     * <br><b><font color="white">PARAMETERS</font></b>  : <br>
-     *      <blockquote><i>a. x - X location for the King being looked at for check</i></blockquote>
-     *      <blockquote><i>b. y - Y location for the King being looked at for check</i></blockquote>
+     * <h3 style="color:white;">PARAMETERS:</h3>
+     *      @param x - X location for the King being looked at for check
+     *      @param y - Y location for the King being looked at for check
      * <HR>
-     * <br><b><font color="white">VARIABLES</font></b>  : <br>
+     * <h3 style="color:white;">VARIABLES:</h3>
      *      <blockquote><i>a. arthur - Boolean value for check status</i></blockquote>
      * <HR>
-     * <br><b><font color="white">PURPOSE</font></b>      : <blockquote>
+     * <h3 style="color:white;">RETURN:</h3>
+     *      @return arthur - Boolean value for check status
+     * <HR>
+     * <h3 style="color:white;">PURPOSE:</h3><blockquote>
      * <pre>Check to see if White and black king are in check:
-<ul><li>By Pawn Diagonally;</li>
-<li>By potential Knight locations;</li>
-<li>By Horizontally and vertically by Queen or Rook;</li>
-<li>By Diagonally in all directions by Bishop or Queen;</li>
-<li>Return true if in check by any of these methods;</li></pre></blockquote>
+By Pawn Diagonally;
+By potential Knight locations;
+By Horizontally and vertically by Queen or Rook;
+By Diagonally in all directions by Bishop or Queen;
+Return true if in check by any of these methods;</pre></blockquote>
 */
     public boolean isCheck(int x, int y)
     {
@@ -742,5 +753,4 @@ Else If (black or white are not in check )
 
         return arthur;
     }// End isCheck() method;
-        
 }

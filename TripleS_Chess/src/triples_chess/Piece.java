@@ -6,34 +6,29 @@
  *  <b>DATE</b>        : 01.23.2017 - 05.12.2017<br>
  */
 package triples_chess;
-/**
- *
- * @author Stcof
- */
 
 import javax.swing.*;
 
 /**
-* <h3><font color="yellow">"Triple S Chess Icons" by en:User:Cburnett is licensed under CC BY 3.0</h3></font>
+* <h3 style="color:yellow;">"Triple S Chess Icons" by en:User:Cburnett is licensed under CC BY 3.0</h3>
 * <br>
-* <br>
-* <b> <font color="white">CLASS </b> </font>  : Piece <br>
+* <h3 style="color:white;">CLASS: Piece </h3>
 * <HR>
-* <br><b> <font color="white">PARAMETERS </b> </font> : None <br>
+* <h3 style="color:white;">PARAMETERS: None</h3>
 * <HR>
-* <br><b> <font color="white">VARIABLES </b> </font> : <br>
+* <h3 style="color:white;">VARIABLES: </h3>
 *      <blockquote><i>a. pImg - String name for image file location</i></blockquote>
 *      <blockquote><i>b. type - Type of piece</i></blockquote>
 *      <blockquote><i>c. colr - Color of piece</i></blockquote>
 *      <blockquote><i>c. hasmoved - Integer counter for no. of moves </i></blockquote>
 *      <blockquote><i>c. moves[][] - Array output of valid moves</i></blockquote>
 * <HR>
-* <br><b> <font color="white"> PURPOSE</b> </font>     :
+* <h3 style="color:white;">PURPOSE: </h3>
 * <pre>
-<ul><li>Piece(Takes the Type(pT) and Color(pC) assignments)</li>
-<li>Assigns the type and color and initializes movement to zero;</li>
-<li>Looks to see whether piece is black or white()</li>
-<li>Looks to see what type of piece it is and sets it to its corresponding Image type;</li></pre>
+Piece(Takes the Type(pT) and Color(pC) assignments)
+Assigns the type and color and initializes movement to zero;
+Looks to see whether piece is black or white()
+Looks to see what type of piece it is and sets it to its corresponding Image type;</pre>
 */
 public class Piece
 {
@@ -57,11 +52,18 @@ public class Piece
         String BAce = "KB60.png" ;
         
         
-        
+        /**
+         * 
+         */
 	public Piece()
 	{	}
 	
-	public Piece( pT type, pC colr)
+	/**
+         * 
+         * @param type
+         * @param colr 
+         */
+        public Piece( pT type, pC colr)
 	{
 		
 		this.type 	= type	;
@@ -127,21 +129,24 @@ public class Piece
 	}
 	
 /**
-* <b> <font color="white">PROCEDURE </b> </font>  : vMove <br>
+* <h3 style="color:white;">PROCEDURE: vMove </h3>
 * <HR>
-* <br><b> <font color="white">PARAMETERS </b> </font> :  <br>
-*           <blockquote><i>a. x - Actual piece location for valid move</i></blockquote>
-*           <blockquote><i>a. y - Actual piece location for valid move</i></blockquote>
-*           <blockquote><i>a. B - Board Array of pieces currently</i></blockquote> 
+* <h3 style="color:white;">PARAMETERS:  </h3>
+*           @param x - Actual piece location for valid move
+*           @param y - Actual piece location for valid move
+*           @param B - Board Array of pieces currently
 * <HR>
-* <br><b> <font color="white">VARIABLES </b> </font> : None <br>
+* <h3 style="color:white;">VARIABLES:</h3>
+*   @return moves
 * <HR>
-* <br><b> <font color="white"> PURPOSE</b> </font>     :
+* <h3 style="color:white;">RETURN:</h3> None
+* <HR>
+* <h3 style="color:white;"> PURPOSE:</h3>
 * <pre>
-<ul><li>Takes in the position location of the piece trying to move(x,y) and the current array of pieces</li>
-<li>Looks to see what type piece is being moved:</li>
-<li>Sends it to the corresponding moves class and populates the moves array;</li>
-<li>Returns the populated moves array;</li></pre>
+Takes in the position location of the piece trying to move(x,y) and the current array of pieces
+Looks to see what type piece is being moved:
+Sends it to the corresponding moves class and populates the moves array;
+Returns the populated moves array;</pre>
 */
 	public int[][] vMove(int x, int y, Piece[][] B)
     {   
@@ -186,26 +191,28 @@ public class Piece
 		
         return moves;
     }
-    
-/**
-* <b> <font color="white">PROCEDURE </b> </font>  : PawnMoves <br>
+/**    
+* <h3 style="color:white;">PROCEDURE: PawnMoves</h3>
 * <HR>
-* <br><b> <font color="white">PARAMETERS </b> </font> :  <br>
-*           <blockquote><i>a. x - Actual pawn location for valid move</i></blockquote>
-*           <blockquote><i>a. y - Actual pawn location for valid move</i></blockquote>
-*           <blockquote><i>a. B - Board Array of pieces currently</i></blockquote> 
+* <h3 style="color:white;">PARAMETERS:</h3>
+*           @param x - Actual Pawn location for valid move
+*           @param y - Actual Pawn location for valid move
+*           @param B - Board Array of pieces currently
 * <HR>
-* <br><b> <font color="white">VARIABLES </b> </font> : <br>
+* <h3 style="color:white;">VARIABLES:</h3>
 *      <blockquote><i>a. col - </i></blockquote>
 *      <blockquote><i>b. row - </i></blockquote>
 * <HR>
-* <br><b> <font color="white"> PURPOSE</b> </font>     :
+* <h3 style="color:white;">RETURN: </h3>
+*      @return moves -
+* <HR>
+* <h3 style="color:white;"> PURPOSE: </h3>
 * <pre>
-<ul><li>Takes in the position location of the piece trying to move(x,y) and the current array of pieces</li>
-<li>Looks to see if a black or white piece and if any valid Pawn moves can be made;</li>
-<li>If valid move can be made it adds value to moves array;</li>
-<li>Returns moves;</li></pre>
-*/
+Takes in the position location of the piece trying to move(x,y) and the current array of pieces
+Looks to see if any valid Pawn moves can be made;
+If valid move can be made it adds value to moves array;
+Returns moves;</pre>
+*/   
 	public int[][] PawnMoves(int x, int y, Piece[][] B) 
 	{
 		int col = 0;
@@ -292,23 +299,26 @@ public class Piece
 	} // End PawnMoves()
 
 /**
-* <b> <font color="white">PROCEDURE </b> </font>  : KnightMoves <br>
+* <h3 style="color:white;">PROCEDURE: KnightMoves</h3>
 * <HR>
-* <br><b> <font color="white">PARAMETERS </b> </font> :  <br>
-*           <blockquote><i>a. x - Actual Knight location for valid move</i></blockquote>
-*           <blockquote><i>a. y - Actual Knight location for valid move</i></blockquote>
-*           <blockquote><i>a. B - Board Array of pieces currently</i></blockquote> 
+* <h3 style="color:white;">PARAMETERS:</h3>
+*           @param x - Actual Knight location for valid move
+*           @param y - Actual Knight location for valid move
+*           @param B - Board Array of pieces currently
 * <HR>
-* <br><b> <font color="white">VARIABLES </b> </font> : <br>
+* <h3 style="color:white;">VARIABLES:</h3>
 *      <blockquote><i>a. col - </i></blockquote>
 *      <blockquote><i>b. row - </i></blockquote>
 * <HR>
-* <br><b> <font color="white"> PURPOSE</b> </font>     :
+* <h3 style="color:white;">RETURN: </h3>
+*      @return moves
+* <HR>
+* <h3 style="color:white;"> PURPOSE: </h3>
 * <pre>
-<ul><li>Takes in the position location of the piece trying to move(x,y) and the current array of pieces</li>
-<li>Looks to see if any valid Knight moves can be made;</li>
-<li>If valid move can be made it adds value to moves array;</li>
-<li>Returns moves;</li></pre>
+Takes in the position location of the piece trying to move(x,y) and the current array of pieces
+Looks to see if any valid Knight moves can be made;
+If valid move can be made it adds value to moves array;
+Returns moves;</pre>
 */        
         public int[][] KnightMoves(int x, int y, Piece[][] B)
 	{
@@ -390,24 +400,27 @@ public class Piece
 	}// End KnightMoves()
 
 /**
-* <b> <font color="white">PROCEDURE </b> </font>  : RookMoves <br>
+* <h3 style="color:white;">PROCEDURE: RookMoves</h3>
 * <HR>
-* <br><b> <font color="white">PARAMETERS </b> </font> :  <br>
-*           <blockquote><i>a. x - Actual Rook location for valid move</i></blockquote>
-*           <blockquote><i>a. y - Actual Rook location for valid move</i></blockquote>
-*           <blockquote><i>a. B - Board Array of pieces currently</i></blockquote> 
+* <h3 style="color:white;">PARAMETERS:</h3>
+*           @param x - Actual Rook location for valid move
+*           @param y - Actual Rook location for valid move
+*           @param B - Board Array of pieces currently
 * <HR>
-* <br><b> <font color="white">VARIABLES </b> </font> : <br>
+* <h3 style="color:white;">VARIABLES:</h3>
 *      <blockquote><i>a. col - </i></blockquote>
 *      <blockquote><i>b. row - </i></blockquote>
 * <HR>
-* <br><b> <font color="white"> PURPOSE</b> </font>     :
+* <h3 style="color:white;">RETURN: </h3>
+*      @return moves -
+* <HR>
+* <h3 style="color:white;"> PURPOSE: </h3>
 * <pre>
-<ul><li>Takes in the position location of the piece trying to move(x,y) and the current array of pieces</li>
-<li>Looks to see if any valid Rook moves can be made;</li>
-<li>If valid move can be made it adds value to moves array;</li>
-<li>Returns moves;</li></pre>
-*/          
+Takes in the position location of the piece trying to move(x,y) and the current array of pieces
+Looks to see if any valid Rook moves can be made;
+If valid move can be made it adds value to moves array;
+Returns moves;</pre>
+*/       
 	public int[][] RookMoves(int x, int y, Piece[][] B)
 	{
 		int col = 0;
@@ -515,24 +528,27 @@ public class Piece
 	}// End RookMoves()
 
 /**
-* <b> <font color="white">PROCEDURE </b> </font>  : BishopMoves <br>
+* <h3 style="color:white;">PROCEDURE: BishopMoves</h3>
 * <HR>
-* <br><b> <font color="white">PARAMETERS </b> </font> :  <br>
-*           <blockquote><i>a. x - Actual Bishop location for valid move</i></blockquote>
-*           <blockquote><i>a. y - Actual Bishop location for valid move</i></blockquote>
-*           <blockquote><i>a. B - Board Array of pieces currently</i></blockquote> 
+* <h3 style="color:white;">PARAMETERS:</h3>
+*           @param x - Actual Bishop location for valid move
+*           @param y - Actual Bishop location for valid move
+*           @param B - Board Array of pieces currently
 * <HR>
-* <br><b> <font color="white">VARIABLES </b> </font> : <br>
+* <h3 style="color:white;">VARIABLES:</h3>
 *      <blockquote><i>a. col - </i></blockquote>
 *      <blockquote><i>b. row - </i></blockquote>
 * <HR>
-* <br><b> <font color="white"> PURPOSE</b> </font>     :
+* <h3 style="color:white;">RETURN: </h3>
+*      @return moves -
+* <HR>
+* <h3 style="color:white;"> PURPOSE: </h3>
 * <pre>
-<ul><li>Takes in the position location of the piece trying to move(x,y) and the current array of pieces</li>
-<li>Looks to see if any valid Bishop moves can be made;</li>
-<li>If valid move can be made it adds value to moves array;</li>
-<li>Returns moves;</li></pre>
-*/        
+Takes in the position location of the piece trying to move(x,y) and the current array of pieces
+Looks to see if any valid Bishop moves can be made;
+If valid move can be made it adds value to moves array;
+* Returns moves;</pre>
+*/       
 	public int[][] BishopMoves(int x, int y, Piece[][] B)
 	{
 		int col = 0;
@@ -643,24 +659,27 @@ public class Piece
 	}// End BishopMoves()
 
 /**
-* <b> <font color="white">PROCEDURE </b> </font>  : QueenMoves <br>
+* <h3 style="color:white;">PROCEDURE: QueenMoves</h3>
 * <HR>
-* <br><b> <font color="white">PARAMETERS </b> </font> :  <br>
-*           <blockquote><i>a. x - Actual Queen location for valid move</i></blockquote>
-*           <blockquote><i>a. y - Actual Queen location for valid move</i></blockquote>
-*           <blockquote><i>a. B - Board Array of pieces currently</i></blockquote> 
+* <h3 style="color:white;">PARAMETERS:</h3>
+*           @param x - Actual Queen location for valid move
+*           @param y - Actual Queen location for valid move
+*           @param B - Board Array of pieces currently
 * <HR>
-* <br><b> <font color="white">VARIABLES </b> </font> : <br>
+* <h3 style="color:white;">VARIABLES:</h3>
 *      <blockquote><i>a. col - </i></blockquote>
 *      <blockquote><i>b. row - </i></blockquote>
 * <HR>
-* <br><b> <font color="white"> PURPOSE</b> </font>     :
+* <h3 style="color:white;">RETURN: </h3>
+*      @return moves -
+* <HR>
+* <h3 style="color:white;"> PURPOSE: </h3>
 * <pre>
-<ul><li>Takes in the position location of the piece trying to move(x,y) and the current array of pieces</li>
-<li>Looks to see if any valid Queen moves can be made;</li>
-<li>If valid move can be made it adds value to moves array;</li>
-<li>Returns moves;</li></pre>
-*/         
+Takes in the position location of the piece trying to move(x,y) and the current array of pieces
+Looks to see if any valid Queen moves can be made
+If valid move can be made it adds value to moves array;
+Returns moves;</pre>
+*/     
 	public int[][] QueenMoves(int x, int y, Piece[][] B) 
 	{
 		int col = 0;
@@ -856,24 +875,27 @@ public class Piece
 	} // End QueenMoves()
 
 /**
-* <b> <font color="white">PROCEDURE </b> </font>  : KingMoves <br>
+* <h3 style="color:white;">PROCEDURE: KingMoves</h3>
 * <HR>
-* <br><b> <font color="white">PARAMETERS </b> </font> :  <br>
-*           <blockquote><i>a. x - Actual King location for valid move</i></blockquote>
-*           <blockquote><i>a. y - Actual King location for valid move</i></blockquote>
-*           <blockquote><i>a. B - Board Array of pieces currently</i></blockquote> 
+* <h3 style="color:white;">PARAMETERS:</h3>
+*           @param x - Actual King location for valid move
+*           @param y - Actual King location for valid move
+*           @param B - Board Array of pieces currently 
 * <HR>
-* <br><b> <font color="white">VARIABLES </b> </font> : <br>
+* <h3 style="color:white;">VARIABLES:</h3>
 *      <blockquote><i>a. col - </i></blockquote>
 *      <blockquote><i>b. row - </i></blockquote>
 * <HR>
-* <br><b> <font color="white"> PURPOSE</b> </font>     :
+* <h3 style="color:white;">RETURN: </h3>
+*      @return moves -
+* <HR>
+* <h3 style="color:white;"> PURPOSE: </h3>
 * <pre>
-<ul><li>Takes in the position location of the piece trying to move(x,y) and the current array of pieces</li>
-<li>Looks to see if any valid King moves can be made;</li>
-<li>If valid move can be made it adds value to moves array;</li>
-<li>Returns moves;</li></pre>
-*/         
+Takes in the position location of the piece trying to move(x,y) and the current array of pieces
+Looks to see if any valid King moves can be made;
+If valid move can be made it adds value to moves array;
+Returns moves;</pre>
+*/       
 	public int[][] KingMoves(int x, int y, Piece[][] B) 
 	{
 		int col = 0;
@@ -962,14 +984,16 @@ public class Piece
 	} // End KingMoves()
 	
 /**
-* <b> <font color="white">PROCEDURE </b> </font>  : type <br>
+* <h3 style="color:white;">PROCEDURE: type</h3>
 * <HR>
-* <br><b> <font color="white">PARAMETERS </b> </font> :  None <br>
+* <h3 style="color:white;">PARAMETERS: None</h3>
 * <HR>
-* <br><b> <font color="white">VARIABLES </b> </font> : None <br>
-
+* <h3 style="color:white;">VARIABLES: None</h3>
 * <HR>
-* <br><b> <font color="white"> PURPOSE</b> </font>     :
+* <h3 style="color:white;">RETURN: </h3>
+*       @return type - type of piece
+* <HR>
+* <h3 style="color:white;">PURPOSE:</h3>
 * <pre>Returns piece type</pre>
 */ 
         public pT type()
@@ -978,14 +1002,15 @@ public class Piece
 	}
 
 /**
-* <b> <font color="white">PROCEDURE </b> </font>  : colr <br>
+* <h3 style="color:white;">PROCEDURE: colr </h3>
 * <HR>
-* <br><b> <font color="white">PARAMETERS </b> </font> :  None <br>
+* <h3 style="color:white;">PARAMETERS: None </h3>
 * <HR>
-* <br><b> <font color="white">VARIABLES </b> </font> : None <br>
-
+* <h3 style="color:white;">VARIABLES: None </h3>
+* <h3 style="color:white;">RETURN: </h3>
+*       @return colr - color of piece
 * <HR>
-* <br><b> <font color="white"> PURPOSE</b> </font>     :
+* <h3 style="color:white;">PURPOSE: </h3>
 * <pre>Returns piece color</pre>
 */         
 	public pC colr()
@@ -994,14 +1019,15 @@ public class Piece
 	}
 
 /**
-* <b> <font color="white">PROCEDURE </b> </font>  : getImgID <br>
+* <h3 style="color:white;">PROCEDURE: getImgID </h3>
 * <HR>
-* <br><b> <font color="white">PARAMETERS </b> </font> :  None <br>
+* <h3 style="color:white;">PARAMETERS: None </h3>
 * <HR>
-* <br><b> <font color="white">VARIABLES </b> </font> : None <br>
-
+* <h3 style="color:white;">VARIABLES: None </h3>
+* <h3 style="color:white;">RETURN: </h3>
+*       @return pImg - Image ID of piece
 * <HR>
-* <br><b> <font color="white"> PURPOSE</b> </font>     :
+* <h3 style="color:white;">PURPOSE: </h3>
 * <pre>Returns the string value for the location of the image file</pre>
 */         
 	public String getImgID()
@@ -1010,14 +1036,15 @@ public class Piece
 	}
         
 /**
-* <b> <font color="white">PROCEDURE </b> </font>  : toString <br>
+* <h3 style="color:white;">PROCEDURE: toString</h3>
 * <HR>
-* <br><b> <font color="white">PARAMETERS </b> </font> :  None <br>
+* <h3 style="color:white;">PARAMETERS: None </h3>
 * <HR>
-* <br><b> <font color="white">VARIABLES </b> </font> : None <br>
-
+* <h3 style="color:white;">VARIABLES: None </h3>
+* <h3 style="color:white;">RETURN: </h3>
+*       @return colr - Color and type of piece 
 * <HR>
-* <br><b> <font color="white"> PURPOSE</b> </font>     :
+* <h3 style="color:white;">PURPOSE: </h3>
 * <pre>Returns the piece color and type in a string format</pre>
 */ 
         public String toString()
@@ -1026,14 +1053,15 @@ public class Piece
 	}
 
 /**
-* <b> <font color="white">PROCEDURE </b> </font>  : has moved <br>
+* <h3 style="color:white;">PROCEDURE: has moved</h3>
 * <HR>
-* <br><b> <font color="white">PARAMETERS </b> </font> :  None <br>
+* <h3 style="color:white;">PARAMETERS:  None</h3>
 * <HR>
-* <br><b> <font color="white">VARIABLES </b> </font> : None <br>
-
+* <h3 style="color:white;">VARIABLES: None</h3>
+* <h3 style="color:white;">RETURN: </h3>
+*       @return hasMoved - Count of moves 
 * <HR>
-* <br><b> <font color="white"> PURPOSE</b> </font>     :
+* <h3 style="color:white;">PURPOSE: </h3>
 * <pre>Returns int value for hasMoved</pre>
 */         
 	public int hasMoved()
@@ -1042,21 +1070,18 @@ public class Piece
 	}
 
 /**
-* <b><font color="white">PROCEDURE</font></b>   : isMoved <br>
+* <h3 style="color:white;">PROCEDURE: isMoved</h3>
 * <HR>
-* <br><b><font color="white">PARAMETERS</font></b>  :  None <br>
+* <h3 style="color:white;">PARAMETERS:  None</h3>
 * <HR>
-* <br><b><font color="white">VARIABLES</font></b> : None <br>
-
+* <h3 style="color:white;">VARIABLES: None</h3>
 * <HR>
-* <br><b><font color="white"> PURPOSE</font></b>     :
+* <h3 style="color:white;">PURPOSE: </h3>
 * <pre>Adds one to hasMoved for the piece when moved</pre>
 */         
 	public void isMoved()
 	{
 		hasMoved = hasMoved + 1;
 	}
-
-
 }
 
